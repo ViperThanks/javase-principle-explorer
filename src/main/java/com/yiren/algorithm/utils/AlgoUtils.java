@@ -75,6 +75,7 @@ public class AlgoUtils {
    * @return 随机数组
    */
   public static int[] randomIntArr(int length, int from, int to) {
+    requireState(from <= to, "from must less than to");
     int[] arr = new int[length];
     for (int i = 0; i < length; i++) {
       arr[i] = random.nextInt(from, to);
@@ -102,10 +103,21 @@ public class AlgoUtils {
    * @return 连续数组
    */
   public static int[] sortedIntArr(int from, int to, int step) {
-    int[] arr = new int[(to - from) / step + 1];
+    requireState(step != 0, "step must not be zero");
+    int[] arr;
     int index = 0;
-    for (int i = from; i <= to; i += step) {
-      arr[index++] = i;
+    if (step > 0) {
+      requireState(from <= to, "from must less than to");
+      arr = new int[(to - from) / step + 1];
+      for (int i = from; i <= to; i += step) {
+        arr[index++] = i;
+      }
+    } else {
+      requireState(from >= to, "from must greater than to");
+      arr = new int[(from - to) / step + 1];
+      for (int i = from; i >= to; i += step) {
+        arr[index++] = i;
+      }
     }
     return arr;
   }
@@ -119,6 +131,7 @@ public class AlgoUtils {
    * @return 随机数组
    */
   public static double[] randomDoubleArr(double from, double to, int length) {
+    requireState(from <= to, "from must less than to");
     double[] arr = new double[length];
     for (int i = 0; i < length; i++) {
       arr[i] = random.nextDouble(from, to);
@@ -198,12 +211,23 @@ public class AlgoUtils {
   }
 
   public static boolean isSorted(int[] arr, int from, int to) {
+    requireState(from <= to, "from must less than to");
     for (int i = from; i < to; i++) {
       if (arr[i] > arr[i + 1]) {
         return false;
       }
     }
     return true;
+  }
+
+
+  /**
+   * 确保表达式为true
+   */
+  static void requireState(boolean expression, String message) {
+    if (!expression) {
+      throw new IllegalStateException(message);
+    }
   }
 
 
@@ -215,10 +239,11 @@ public class AlgoUtils {
     return new BufferedWriter(new OutputStreamWriter(System.out));
   }
 
-  public static <T> T[] split(String str, Function<String, T> function) {
-    return split(str, " ", function);
-  }
+  private static final String DEFAULT_REGEX = " ";
 
+  public static <T> T[] split(String str, Function<String, T> function) {
+    return split(str, DEFAULT_REGEX, function);
+  }
 
   @SuppressWarnings("unchecked")
   public static <T> T[] split(String str, String regex, Function<String, T> function) {
