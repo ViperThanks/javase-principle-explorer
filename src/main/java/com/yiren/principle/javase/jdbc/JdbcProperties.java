@@ -1,7 +1,5 @@
 package com.yiren.principle.javase.jdbc;
 
-import lombok.Getter;
-
 /**
  * desc  :
  * author: weilin

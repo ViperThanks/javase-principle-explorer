@@ -4,43 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff971988-bed1-4be9-b345-c3636a96a7d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/AlgorithmTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/array/ArraySortAlgorithmTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/array/HeapSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/array/MergeSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/array/QuickSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/ListNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/utils/AlgoUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/Executor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/Explorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/entity/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/classload/LoadClassExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/datastructure/hashmap/HashMapPutDetailExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/direct_memory/DirectMemoryExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/jdbc/JdbcExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/jdbc/JdbcProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/object/LogRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/object/LogRecordBytesDetailExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/object/ObjectBytesDetailExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/thread/CreateThread4MethodExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/jvm/heap/GCAnalyzerExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/jvm/jmm/可见性/SyncExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/jvm/jmm/可见性/VolatileExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/test_data/TestData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/JavaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/moxie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Memory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/MemoryUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Performance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Printer.java" afterDir="false" />
+    <list default="true" id="ff971988-bed1-4be9-b345-c3636a96a7d8" name="Changes" comment="修改异常，增加代码健壮性">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/utils/Python.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/entity/User1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/零拷贝技术/ZeroCopyExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/创建线程的方式/CreateThreadExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程的方法/SleepAndYieldExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程的方法/ThreadMethodsExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/utils/AlgoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/utils/AlgoUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/core/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/Executor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/core/Explorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/Explorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/jdbc/JdbcProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/jdbc/JdbcProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/JavaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/JavaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Printer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,11 +31,26 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="explorer" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ViperThanks&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b183face-cfc9-4f62-b24d-a9a1d63bb1bc" />
+        <option name="url" value="https://github.com/ViperThanks/javase-principle-explorer.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../../../env/jdk11.0.18/lib/src.zip!/java.base/java/util/HashMap.java" root0="SKIP_INSPECTION" />
@@ -81,27 +75,27 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ShowUsagesActions.previewPropertyKey&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/codespaces/eden/javase-principle-explorer/src/main/java/com/yiren/principle/javase/utils&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ShowUsagesActions.previewPropertyKey": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "E:/codespaces/eden/javase-principle-explorer/src/main/java/com/yiren/principle/javase/utils",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "fileTemplates",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\codespaces\eden\javase-principle-explorer\src\main\java\com\yiren\principle\javase\utils" />
@@ -112,6 +106,7 @@
       <recent name="E:\codespaces\eden\javase-principle-explorer\src\main\java\com\yiren\tmp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yiren.entity" />
       <recent name="com.yiren.principle.javase.datastructure.hashmap" />
     </key>
   </component>
@@ -120,7 +115,7 @@
       <command value="asListNode" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.JavaTest">
+  <component name="RunManager" selected="Application.SleepAndYieldExplorer">
     <configuration name="GCAnalyzerExplorer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yiren.principle.jvm.heap.GCAnalyzerExplorer" />
       <module name="javase-principle-explorer" />
@@ -148,12 +143,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="String" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="java.lang.String" />
+    <configuration name="SleepAndYieldExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.juc.线程的方法.SleepAndYieldExplorer" />
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="java.lang.*" />
+          <option name="PATTERN" value="com.yiren.principle.juc.线程的方法.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -161,12 +156,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SyncExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.jvm.jmm.可见性.SyncExplorer" />
+    <configuration name="ThreadMethodsExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.juc.线程的方法.ThreadMethodsExplorer" />
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yiren.principle.jvm.jmm.可见性.*" />
+          <option name="PATTERN" value="com.yiren.principle.juc.线程的方法.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -174,12 +169,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VolatileExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.jvm.jmm.可见性.VolatileExplorer" />
+    <configuration name="ZeroCopyExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.javase.零拷贝技术.ZeroCopyExplorer" />
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yiren.principle.jvm.jmm.可见性.*" />
+          <option name="PATTERN" value="com.yiren.principle.javase.零拷贝技术.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -187,7 +182,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JavaTest.printObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JavaTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
@@ -197,7 +192,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.yiren.tmp" />
       <option name="MAIN_CLASS_NAME" value="com.yiren.tmp.JavaTest" />
-      <option name="METHOD_NAME" value="printObject" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -205,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SleepAndYieldExplorer" />
         <item itemvalue="Application.JavaTest" />
-        <item itemvalue="Application.SyncExplorer" />
-        <item itemvalue="Application.VolatileExplorer" />
-        <item itemvalue="Application.String" />
-        <item itemvalue="JUnit.JavaTest.printObject" />
+        <item itemvalue="Application.ThreadMethodsExplorer" />
+        <item itemvalue="JUnit.JavaTest.test" />
+        <item itemvalue="Application.ZeroCopyExplorer" />
       </list>
     </recent_temporary>
   </component>
@@ -244,11 +239,39 @@
       <workItem from="1692081167817" duration="4891000" />
       <workItem from="1692257692222" duration="3864000" />
       <workItem from="1692358907521" duration="2189000" />
+      <workItem from="1692862526996" duration="4183000" />
+      <workItem from="1692883345526" duration="945000" />
+      <workItem from="1692950546120" duration="1394000" />
+      <workItem from="1693038765314" duration="3071000" />
+      <workItem from="1693396597647" duration="2352000" />
+      <workItem from="1693468315243" duration="5664000" />
     </task>
+    <task id="LOCAL-00001" summary="Java 原理 探索 project 第一次 commit">
+      <option name="closed" value="true" />
+      <created>1692862786794</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692862786794</updated>
+    </task>
+    <task id="LOCAL-00002" summary="修改异常，增加代码健壮性">
+      <option name="closed" value="true" />
+      <created>1692864516474</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1692864516474</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Java 原理 探索 project 第一次 commit" />
+    <MESSAGE value="修改异常，增加代码健壮性" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改异常，增加代码健壮性" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -264,5 +287,9 @@
         <PinnedItemInfo parentTag="com.yiren.utils.Memory$4" memberName="name" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,6 +1,7 @@
 package com.yiren.utils;
 
 import com.yiren.algorithm.datastructure.ListNode;
+import com.yiren.algorithm.datastructure.Pair;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
@@ -35,6 +36,7 @@ public class Printer {
    * 默认占位符
    */
   private static final String DEFAULT_PLACEHOLDER = "{}";
+  private static final String DEFAULT_END = "\n";
 
   //ensure Printer is not instantiated
   private Printer() {
@@ -53,7 +55,7 @@ public class Printer {
    * @param args 参数
    */
   public static void print(String msg, Object... args) {
-    print0(msg, args);
+    print0(msg, DEFAULT_END, args);
   }
 
   /**
@@ -62,7 +64,16 @@ public class Printer {
    * @param obj 任意对象
    */
   public static void print(Object obj) {
-    print0(DEFAULT_PLACEHOLDER, obj);
+    print0(DEFAULT_PLACEHOLDER, DEFAULT_END, obj);
+  }
+
+  /**
+   * 打印 obj 如果 obj 是数组或者自定义的数据结构比如{@linkplain ListNode}，会打印每个元素
+   *
+   * @param obj 任意对象
+   */
+  public static void print(Object obj,@Nonnull String end) {
+    print0(DEFAULT_PLACEHOLDER, end, obj);
   }
 
 
@@ -78,7 +89,7 @@ public class Printer {
    * @param msg  信息
    * @param args 参数
    */
-  private static void print0(@Nullable String msg,@Nonnull Object... args) {
+  private static void print0(@Nullable String msg, String end, @Nonnull Object... args) {
     if (StringUtils.isBlank(msg)) {
       return;
     }
@@ -95,7 +106,11 @@ public class Printer {
       sb.replace(index, index + 2, argString);
       index += argString.length();
     }
-    stdOutStream.println(sb.toString());
+    if (end.equals("\n")) {
+      stdOutStream.println(sb.toString());
+    } else {
+      stdOutStream.print(sb + end);
+    }
   }
 
 
@@ -128,6 +143,7 @@ public class Printer {
     private static final Class<?>[] supportClass =
       {
         ListNode.class,
+        Pair.class,
         int[].class,
       };
 
@@ -189,6 +205,18 @@ public class Printer {
       //null -> ... -> null
       sb.append("null");
       return sb.toString();
+    }
+
+    /**
+     * 将pair转换为字符串
+     * @param pair
+     * @return
+     */
+    private static <K, V> String toString0(@Nullable Pair<K, V> pair) {
+      if (pair == null) {
+        return "null";
+      }
+      return pair.toString();
     }
 
     private static String toString0(@Nullable int[] arr) {

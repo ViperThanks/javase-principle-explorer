@@ -15,6 +15,7 @@ public class Executor {
 
   public static void executeExplorer(Explorer explorer) {
     try {
+      log.info("execute explorerClass: {} \n", explorer.getClass().getSimpleName());
       explorer.explore();
     } catch (Exception e) {
       log.error("不能正常启动" + explorer.getClass());

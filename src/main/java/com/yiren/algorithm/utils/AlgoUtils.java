@@ -83,44 +83,59 @@ public class AlgoUtils {
     return arr;
   }
 
+
   /**
+   * 模仿 python的 range 关键字
+   * int 型 ,默认步长为1
+   *
+   * @param to 结束值
+   * @return 连续数组
+   */
+  public static int[] range(int to) {
+    return range(0, to, 1);
+  }
+
+
+  /**
+   * 模仿 python的 range 关键字
    * int 型 ,默认步长为1
    *
    * @param from 起始值
    * @param to   结束值
    * @return 连续数组
    */
-  public static int[] sortedIntArr(int from, int to) {
-    return sortedIntArr(from, to, 1);
+  public static int[] range(int from, int to) {
+    return range(from, to, 1);
   }
 
   /**
-   * int 型
+   * 模仿 python的 range 关键字
    *
    * @param from 起始值
    * @param to   结束值
    * @param step 步长
    * @return 连续数组
    */
-  public static int[] sortedIntArr(int from, int to, int step) {
+  public static int[] range(int from, int to, int step) {
     requireState(step != 0, "step must not be zero");
     int[] arr;
     int index = 0;
     if (step > 0) {
       requireState(from <= to, "from must less than to");
-      arr = new int[(to - from) / step + 1];
-      for (int i = from; i <= to; i += step) {
+      arr = new int[(to - from) / step];
+      for (int i = from; i < to; i += step) {
         arr[index++] = i;
       }
     } else {
       requireState(from >= to, "from must greater than to");
       arr = new int[(from - to) / step + 1];
-      for (int i = from; i >= to; i += step) {
+      for (int i = from; i > to; i += step) {
         arr[index++] = i;
       }
     }
     return arr;
   }
+
 
   /**
    * 生成随机数组,double 型
