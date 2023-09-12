@@ -1,7 +1,10 @@
 package com.yiren.algorithm.array;
 
 import com.yiren.algorithm.utils.AlgoUtils;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
 
 /**
  * desc  :  快速排序
@@ -11,8 +14,11 @@ import lombok.extern.slf4j.Slf4j;
  * date  : 24/6/2023 下午 5:13
  * email : vieper0714@outlook.com
  */
-@Slf4j
+
 public class QuickSort implements ArraySortAlgorithmTemplate {
+
+  private static final Logger log = LoggerFactory.getLogger(QuickSort.class);
+
 
   public static void quick_sort(int[] arr, int left, int right) {
     if (left >= right) return;
@@ -41,7 +47,7 @@ public class QuickSort implements ArraySortAlgorithmTemplate {
   @Override
   public void execute() {
     int[] test_arr = randomIntArr();
-    log.info("排序前的结果 : {}", test_arr);
+    log.info("排序前的结果 : {}", Arrays.toString(test_arr));
     quick_sort(test_arr, 0, test_arr.length - 1);
     log.info("快速排序排序后的结果 : {}", test_arr);
   }

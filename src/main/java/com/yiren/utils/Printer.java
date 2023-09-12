@@ -2,6 +2,7 @@ package com.yiren.utils;
 
 import com.yiren.algorithm.datastructure.ListNode;
 import com.yiren.algorithm.datastructure.Pair;
+import com.yiren.algorithm.utils.AlgoUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
@@ -72,7 +73,7 @@ public class Printer {
    *
    * @param obj 任意对象
    */
-  public static void print(Object obj,@Nonnull String end) {
+  public static void print(Object obj, @Nonnull String end) {
     print0(DEFAULT_PLACEHOLDER, end, obj);
   }
 
@@ -107,7 +108,7 @@ public class Printer {
       index += argString.length();
     }
     if (end.equals("\n")) {
-      stdOutStream.println(sb.toString());
+      stdOutStream.println(sb);
     } else {
       stdOutStream.print(sb + end);
     }
@@ -132,10 +133,7 @@ public class Printer {
 
 
   private static class PrinterHelper {
-    /**
-     * 链表节点之间的分隔符
-     */
-    private static final String LIST_NODE_SEPARATOR = " -> ";
+
 
     /**
      * 已重载打印的类型
@@ -192,35 +190,21 @@ public class Printer {
      * null -> 1 -> 2 -> 3 -> 4 -> 5 -> null
      */
     private static String toString0(@Nullable ListNode node) {
-      //ensure node is not null
-      if (node == null) {
-        return "null";
-      }
-      //null ->
-      final StringBuilder sb = new StringBuilder("null" + LIST_NODE_SEPARATOR);
-      while (node != null) {
-        sb.append(node.val).append(LIST_NODE_SEPARATOR);
-        node = node.next;
-      }
-      //null -> ... -> null
-      sb.append("null");
-      return sb.toString();
+      return AlgoUtils.toString(node);
     }
 
     /**
      * 将pair转换为字符串
+     *
      * @param pair
      * @return
      */
     private static <K, V> String toString0(@Nullable Pair<K, V> pair) {
-      if (pair == null) {
-        return "null";
-      }
-      return pair.toString();
+      return AlgoUtils.toString(pair);
     }
 
     private static String toString0(@Nullable int[] arr) {
-      return Arrays.toString(arr);
+      return AlgoUtils.toString(arr);
     }
 
   }

@@ -27,13 +27,6 @@ public interface ArraySortAlgorithmTemplate extends AlgorithmTemplate {
     return AlgoUtils.randomIntArr(default_length, default_min, default_max);
   }
 
-  /**
-   * check if the array is sorted
-   */
-  default boolean isSorted(int[] arr) {
-    return AlgoUtils.isSorted(arr);
-  }
-
 
   /**
    * 排序方法

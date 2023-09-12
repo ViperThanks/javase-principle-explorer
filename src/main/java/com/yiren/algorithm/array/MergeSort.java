@@ -1,7 +1,7 @@
 package com.yiren.algorithm.array;
 
-import com.yiren.algorithm.utils.AlgoUtils;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * desc  : 归并排序 先递归再排序
@@ -9,8 +9,10 @@ import lombok.extern.slf4j.Slf4j;
  * date  : 24/6/2023 下午 5:54
  * email : vieper0714@outlook.com
  */
-@Slf4j
+
 public class MergeSort implements ArraySortAlgorithmTemplate{
+
+  private static final Logger log = LoggerFactory.getLogger(MergeSort.class);
 
   public static void merge_sort(int[] arr, int l, int r) {
     if (l >= r) return;

@@ -25,13 +25,19 @@
     </developers>
 
     <dependencies>
-<!--        mysql connect java-->
+
+        <!--        aspect j-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+        <!--        mysql connect java-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.26</version>
         </dependency>
-
 
         <!--        logback-->
         <dependency>
@@ -39,7 +45,6 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.9</version>
         </dependency>
-
 
         <!--        lombok-->
         <dependency>
@@ -106,6 +111,12 @@
             <artifactId>junit-jupiter</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
+        </dependency>
+        <!--        cglib-->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.3.0</version>
         </dependency>
 
 

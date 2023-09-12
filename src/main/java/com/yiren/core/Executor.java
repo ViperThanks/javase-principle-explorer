@@ -1,6 +1,7 @@
 package com.yiren.core;
 
 import com.yiren.algorithm.AlgorithmTemplate;
+import sun.reflect.misc.ReflectUtil;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -15,11 +16,12 @@ public class Executor {
 
   public static void executeExplorer(Explorer explorer) {
     try {
-      log.info("execute explorerClass: {} \n", explorer.getClass().getSimpleName());
+      log.info("--- --- --- ---execute explorerClass: {} \n", explorer.getClass().getSimpleName());
       explorer.explore();
     } catch (Exception e) {
-      log.error("不能正常启动" + explorer.getClass());
+      log.error("catch explorer inner error \n ", e);
     }
+    log.info("--- --- --- ---execute explorerClass: {} main thread end \n", explorer.getClass().getSimpleName());
   }
 
   /**
@@ -29,18 +31,27 @@ public class Executor {
    */
   @SafeVarargs
   public static void executeExplorer(Class<? extends Explorer>... explorerClazzs) {
-
     for (Class<? extends Explorer> explorerClazz : explorerClazzs) {
+      String clazzName = explorerClazz.getSimpleName();
+      log.info("--- --- --- --- execute explorerClass: {} main thread start", clazzName);
+      Explorer explorer = null;
       try {
-        log.info("execute explorerClass: {} \n", explorerClazz.getSimpleName());
-        Explorer explorer = explorerClazz.getConstructor().newInstance();
-        explorer.explore();
+        explorer = explorerClazz.getConstructor().newInstance();
       } catch (Exception e) {
-        log.error("execute explorerClass:{} error", explorerClazz.getSimpleName());
+        log.error("execute explorerClass:{} error", clazzName);
         log.error("ensure that the explorerClass has a no-args constructor");
         log.error("ensure that the explorerClass constructor is public");
-        log.error("ensure catch all exception");
       }
+      if (explorer == null) {
+        log.error("explorer is null, skip this explorerClass: {}", clazzName);
+        continue;
+      }
+      try {
+        explorer.explore();
+      } catch (Exception e) {
+        log.error("catch inner error \n ", e);
+      }
+      log.info("--- --- --- --- execute explorerClass: {} main thread end \n", clazzName);
     }
   }
 
@@ -64,7 +75,6 @@ public class Executor {
         log.error("execute explorerClass:{} error", algoClazz.getSimpleName());
         log.error("ensure that the explorerClass has a no-args constructor");
         log.error("ensure that the explorerClass constructor is public");
-        e.printStackTrace();
       }
     }
   }

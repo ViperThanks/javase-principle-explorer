@@ -2,13 +2,19 @@ package com.yiren.algorithm.utils;
 
 import com.google.common.collect.Lists;
 import com.yiren.algorithm.datastructure.ListNode;
+import com.yiren.algorithm.datastructure.Pair;
+import com.yiren.utils.Printer;
+import org.checkerframework.common.value.qual.IntRange;
+import org.checkerframework.common.value.qual.IntVal;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
@@ -117,7 +123,7 @@ public class AlgoUtils {
    * @return 连续数组
    */
   public static int[] range(int from, int to, int step) {
-    requireState(step != 0, "step must not be zero");
+    requireState(from != to && step != 0, "illegal arguments");
     int[] arr;
     int index = 0;
     if (step > 0) {
@@ -128,7 +134,7 @@ public class AlgoUtils {
       }
     } else {
       requireState(from >= to, "from must greater than to");
-      arr = new int[(from - to) / step + 1];
+      arr = new int[(from - to) / (-1 * step)];
       for (int i = from; i > to; i += step) {
         arr[index++] = i;
       }
@@ -197,6 +203,8 @@ public class AlgoUtils {
     return arr;
   }
 
+  //--- --- --- 结构体 --- --- ---
+
   /**
    * 生成指定ListNode
    */
@@ -221,13 +229,17 @@ public class AlgoUtils {
   }
 
 
+  //--- --- --- 数组增强功能 --- --- ---
+
+  @Deprecated
   public static boolean isSorted(int[] arr) {
     return isSorted(arr, 0, arr.length - 1);
   }
 
+  @Deprecated
   public static boolean isSorted(int[] arr, int from, int to) {
     requireState(from <= to, "from must less than to");
-    for (int i = from; i < to; i++) {
+    for (int i = from; i <= to; i++) {
       if (arr[i] > arr[i + 1]) {
         return false;
       }
@@ -235,6 +247,7 @@ public class AlgoUtils {
     return true;
   }
 
+  //--- --- --- 状态判断 --- --- ---
 
   /**
    * 确保表达式为true
@@ -245,6 +258,7 @@ public class AlgoUtils {
     }
   }
 
+  //--- --- --- 输入输出流 --- --- ---
 
   public static BufferedReader getBufferedReader() {
     return new BufferedReader(new InputStreamReader(System.in));
@@ -264,10 +278,56 @@ public class AlgoUtils {
   public static <T> T[] split(String str, String regex, Function<String, T> function) {
     String[] split = str.split(regex);
     T[] res = (T[]) Array.newInstance(function.apply(split[0]).getClass(), split.length);
-    for (int i = 0; i < split.length; i++) {
+    for (int i = 0; i < split.length; i++)
       res[i] = function.apply(split[i]);
-    }
     return res;
+  }
+
+  //--- --- ---  特殊数据结构tostring --- --- ---
+
+  /**
+   * 链表节点之间的分隔符
+   */
+  private static final String LIST_NODE_SEPARATOR = " -> ";
+
+
+  /**
+   * 将链表转换为字符串
+   * 效果如下:
+   * null -> 1 -> 2 -> 3 -> 4 -> 5 -> null
+   */
+  public static String toString(@Nullable ListNode node) {
+    //ensure node is not null
+    if (node == null) {
+      return "null";
+    }
+    //null ->
+    final StringBuilder sb = new StringBuilder("null" + LIST_NODE_SEPARATOR);
+    while (node != null) {
+      sb.append(node.val).append(LIST_NODE_SEPARATOR);
+      node = node.next;
+    }
+    //null -> ... -> null
+    sb.append("null");
+    return sb.toString();
+  }
+
+
+  /**
+   * 将pair转换为字符串
+   *
+   * @param pair
+   * @return
+   */
+  public static <K, V> String toString(@Nullable Pair<K, V> pair) {
+    return pair == null ? "null" : pair.toString();
+  }
+
+  /**
+   * 将数组转换为字符串
+   */
+  public static String toString(@Nullable int[] arr) {
+    return Arrays.toString(arr);
   }
 
 }

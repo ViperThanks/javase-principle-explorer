@@ -1,14 +1,18 @@
 package com.yiren.tmp;
 
-import com.yiren.algorithm.datastructure.Pair;
-import com.yiren.utils.Printer;
+import com.google.common.collect.Lists;
+import com.yiren.algorithm.utils.AlgoUtils;
+import com.yiren.principle.javase.零拷贝技术.ZeroCopyExplorer;
+import com.yiren.utils.Performance;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * desc  :
@@ -21,21 +25,30 @@ public class JavaTest {
 
 
   public static void main(String[] args) {
-    Queue<Pair<Integer, Integer>> queue = new PriorityQueue<>(Comparator.comparing(Pair::getKey));
-    queue.add(new Pair<>(1, 2));
-    queue.add(new Pair<>(2, 3));
-    queue.add(new Pair<>(3, 4));
-    queue.add(new Pair<>(4, 5));
-    queue.add(new Pair<>(5, 6));
-    queue.add(new Pair<>(6, 7));
-    queue.add(new Pair<>(7, 8));
-    Printer.print("{}", queue);
+    ZeroCopyExplorer explorer = new ZeroCopyExplorer();
+    Runnable zeroCopy = () -> {
+      try {
+        explorer.zeroCopy();
+      } catch (Exception e) {
+        throw new RuntimeException(e);
+      }
+    };
+    Runnable normalCopy = () -> {
+      try {
+        explorer.normalCopy();
+      } catch (Exception e) {
+        throw new RuntimeException(e);
+      }
+    };
+    Performance.run(zeroCopy).toDetailPrintable();
+    Performance.run(normalCopy).toDetailPrintable();
   }
 
   @Test
   public void test() {
-    System.out.println(toBin(0.3));
-
+    List<Integer> list = Lists.newArrayList(1, 2, 3, 4, 5);
+    list.remove(Integer.valueOf(1));
+    log.info("list:{}", list);
   }
 
   String toBin(double num) {
@@ -54,6 +67,24 @@ public class JavaTest {
       }
     }
     return sb.toString();
+  }
+
+  @Test
+  public void test1() throws IOException {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    String[] args = reader.readLine().split(" ");
+    int[] arr = new int[args.length - 1];
+    for (int i = 0; i < args.length - 1; i++) {
+      arr[i] = Integer.parseInt(args[i]);
+    }
+    int k = Integer.parseInt(args[args.length - 1]);
+  }
+
+  @Test
+  public void test2() throws IOException {
+    BufferedReader reader = AlgoUtils.getBufferedReader();
+    Integer[] split = AlgoUtils.split(reader.readLine(), Integer::parseInt);
+    log.info(Arrays.toString(split));
   }
 
 

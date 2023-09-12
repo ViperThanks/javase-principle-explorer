@@ -1,6 +1,6 @@
 package com.yiren.utils;
 
-import lombok.Getter;
+
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
@@ -12,6 +12,9 @@ import java.lang.management.MemoryUsage;
  * date     : 28/3/2023 下午 10:39
  * desc     : 性能测试的结果类,包含花费的时间和花费的内存,基于JVM的内存管理器 {@linkplain MemoryMXBean}
  * 和 {@linkplain System#nanoTime()}()方法
+ *
+ *
+ * 太多问题了,不要用了，时间好像会显示得比较慢
  */
 
 public final class Performance {

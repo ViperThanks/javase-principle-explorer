@@ -40,6 +40,8 @@ public class ThreadMethodsExplorer implements Explorer {
     state = thread.getState();
     log.info("{}", state);
 
+
+
   }
 
 

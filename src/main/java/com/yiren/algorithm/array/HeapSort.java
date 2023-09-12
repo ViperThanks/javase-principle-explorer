@@ -1,7 +1,9 @@
 package com.yiren.algorithm.array;
 
 import com.yiren.algorithm.utils.AlgoUtils;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import java.util.Arrays;
 
@@ -11,8 +13,11 @@ import java.util.Arrays;
  * date  : 24/6/2023 下午 11:32
  * email : vieper0714@outlook.com
  */
-@Slf4j
-public class HeapSort implements ArraySortAlgorithmTemplate{
+
+public class HeapSort implements ArraySortAlgorithmTemplate {
+
+  private static final Logger log = LoggerFactory.getLogger(HeapSort.class);
+
   public static void heap_sort(int[] arr) {
 
     int n = arr.length;

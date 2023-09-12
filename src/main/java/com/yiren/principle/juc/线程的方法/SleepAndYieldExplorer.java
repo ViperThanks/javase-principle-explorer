@@ -30,6 +30,7 @@ public class SleepAndYieldExplorer implements Explorer {
       log.info("thread1 start");
       try {
         TimeUnit.SECONDS.sleep(2);
+
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
@@ -37,6 +38,7 @@ public class SleepAndYieldExplorer implements Explorer {
     }, "t1");
     thread1.start();
     thread1.interrupt();
+    thread1.join();
 
 
 
