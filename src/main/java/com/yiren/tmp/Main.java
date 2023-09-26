@@ -1,21 +1,10 @@
 package com.yiren.tmp;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Lists;
-import com.yiren.algorithm.datastructure.ListNode;
-import com.yiren.algorithm.utils.AlgoUtils;
-import com.yiren.design_patterns.单例模式.LazySingleton;
-import com.yiren.entity.User;
-import com.yiren.utils.StopWatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.misc.Unsafe;
 
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Random;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Collectors;
 
 /**
  * desc  :
@@ -23,8 +12,8 @@ import java.util.stream.Collectors;
  * date  : 17/6/2023 下午 1:39
  * email : vieper0714@outlook.com
  */
-
 public class Main {
+
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
@@ -38,12 +27,13 @@ public class Main {
   private static final double second_discount = 0.5;
   private static final int second_discount_threshold = 200;
   private static final int day_of_one_month = 25;
+  private static final int times_per_day = 2;
   private static final int random_day = (int) (new Random().nextInt(2) + 1);// (0,1] + 1 (1,2]
 
   public static void main(String[] args) {
     boolean open_first = false, open_second = false;
     double cost_money = one_price, count = 0;
-    for (int i = 1; i <= (day_of_one_month - random_day) * 2; i++) {
+    for (int i = 1; i <= (day_of_one_month - random_day) * times_per_day; i++) {
       count += cost_money;
       //这里可以优化，由于短路与 的特性，当第一次打折后，就不会再进入if判断了
 
