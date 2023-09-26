@@ -12,6 +12,35 @@ public class GuardedObject<T> {
 
   private T response;
 
+  /** v2新加的方法
+   * @param timeout 最多等多久
+   * @return 结果
+   */
+  public T get(long timeout) {
+
+    synchronized (this) {
+      long base = System.currentTimeMillis();
+      long passedTime = 0;
+      while (response == null) {
+        long waitTime = timeout - passedTime;
+        if (waitTime <= 0) {
+          break;
+        }
+
+        try {
+          //思考这里为什么？ 答案：虚假唤醒
+          this.wait(waitTime);
+
+        } catch (InterruptedException e) {
+          throw new RuntimeException(e);
+        }
+        //record time
+        passedTime = System.currentTimeMillis() - base;
+      }
+      return response;
+    }
+  }
+
   public T get() {
     synchronized (this) {
       while (response == null) {

@@ -1,7 +1,6 @@
 package com.yiren.utils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -19,12 +18,7 @@ public class StopWatch {
    * @return 任务执行时间
    */
   public static long calculateNanoseconds(Runnable task) {
-    long start = System.nanoTime();
-
-    task.run();
-
-    long end = System.nanoTime();
-    return end - start;
+    return calculate0(task, TimeUnit.NANOSECONDS);
   }
 
   /**
@@ -33,12 +27,31 @@ public class StopWatch {
    * @return 任务执行时间
    */
   public static long calculateMilliseconds(Runnable task) {
-    long start = System.currentTimeMillis();
+    return calculate0(task, TimeUnit.MILLISECONDS);
+  }
+
+
+  /**
+   * 获取任务执行时间,单位 timeUnit
+   * @param task 任务
+   * @return 任务执行时间
+   */
+  public static long calculate(Runnable task, TimeUnit timeUnit) {
+    return calculate0(task, timeUnit);
+  }
+
+  /**
+   * 获取任务执行时间,单位 timeUnit
+   * @param task 任务
+   * @return 任务执行时间
+   */
+  private static long calculate0(Runnable task, TimeUnit timeUnit) {
+    long start = System.nanoTime();
 
     task.run();
 
-    long end = System.currentTimeMillis();
-    return end - start;
+    long end = System.nanoTime();
+    return timeUnit.convert(end - start, TimeUnit.NANOSECONDS);
   }
 
 }

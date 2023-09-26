@@ -1,5 +1,7 @@
 package com.yiren.algorithm.datastructure;
 
+import java.util.Objects;
+
 /**
  * <p>
  * desc    : 二元组
@@ -33,4 +35,16 @@ public class Pair<K, V> {
     return "(" + key + "," + value + ")";
   }
 
+  @Override
+  public boolean equals(Object object) {
+    if (this == object) return true;
+    if (object == null || getClass() != object.getClass()) return false;
+    Pair<?, ?> pair = (Pair<?, ?>) object;
+    return Objects.equals(key, pair.key) && Objects.equals(value, pair.value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(key, value);
+  }
 }

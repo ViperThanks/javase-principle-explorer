@@ -43,19 +43,4 @@ public class TestData {
   private static final Employee emptyEmployee = new Employee();
 
 
-  public static Employee getEmptyEmployee() {
-    return emptyEmployee;
-  }
-
-  public static Employee getTestEmployee() {
-    return testEmployee;
-  }
-
-  public static User getEmptyUser() {
-    return emptyUser;
-  }
-
-  public static User getTestUser() {
-    return testUser;
-  }
 }

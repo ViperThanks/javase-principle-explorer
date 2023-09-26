@@ -208,7 +208,10 @@ public class AlgoUtils {
   /**
    * 生成指定ListNode
    */
-  public static ListNode asListNode(int... values) {
+  public static ListNode asListNode( int... values) {
+    if (values == null || values.length == 0) {
+      throw new IllegalArgumentException("values must not be empty");
+    }
     ListNode head = new ListNode(values[0]);
     ListNode cur = head;
     for (int i = 1; i < values.length; i++) {
@@ -297,19 +300,7 @@ public class AlgoUtils {
    * null -> 1 -> 2 -> 3 -> 4 -> 5 -> null
    */
   public static String toString(@Nullable ListNode node) {
-    //ensure node is not null
-    if (node == null) {
-      return "null";
-    }
-    //null ->
-    final StringBuilder sb = new StringBuilder("null" + LIST_NODE_SEPARATOR);
-    while (node != null) {
-      sb.append(node.val).append(LIST_NODE_SEPARATOR);
-      node = node.next;
-    }
-    //null -> ... -> null
-    sb.append("null");
-    return sb.toString();
+    return node == null ? "null" : node.toString();
   }
 
 

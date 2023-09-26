@@ -5,38 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff971988-bed1-4be9-b345-c3636a96a7d8" name="Changes" comment="改进代码,新增JUC的线程知识">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/动态代理/CglibDynamicProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/动态代理/DynamicProxyExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/动态代理/JdkDynamicProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/SyncByteCodeExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/两阶段终止模式/TwoPhaseTermination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/偏向锁/BiasedLockExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/售票/ExerciseBalanceTransfer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/售票/ExerciseSell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程的状态/FiveStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程的状态/ThreadStatusExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/统筹/TestExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/保护性暂停/Downloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/保护性暂停/GuardedObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/保护性暂停/GuardedSuspensionExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/静态模型/RaceConditionExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/QiaoDaiMaShiGanMaDe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/StopWatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/performance/core/Stopwatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/performance/core/StopwatchAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/leetcode/hot100/T20有效的括号.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/leetcode/hot100/T21合并两个有序链表.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/ExplorerTestable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/design_patterns/单例模式/HungrySingleton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/design_patterns/单例模式/LazySingleton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/practice/PrintSequenceFrom1To100.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/PackUnpack/PackStatusExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/PackUnpack/PackUnpackTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/BiasedLockExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/LockExpansionExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Unsafe/MyAtomicInteger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Unsafe/UnsafeFunctionExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/reentrantlock/ReentranLockExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/reentrantlock/ReentrantLockPracticeExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/reentrantlock/ReentrantLockSummaryExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/不可变类型/ImmutableTypesExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/两阶段终止模式/TwoPhaseTerminationAdvanced.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/可见性/NeverStopExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/多把锁/MultiLockExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/无锁并发cas/CasExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/无锁并发cas/原子类/AtomicIntegerExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程池的种类/TypesOfThreadPoolExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程状态的切换/从Runnable到Waiting/TestWaitNotify.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/生产者消费者/CustomerPublisherExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/生产者消费者/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/生产者消费者/MessageQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/锁的活跃性/死锁/DeadLockExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/顺序控制/SequenceControl2Explorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/顺序控制/SequenceControl3Explorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/顺序控制/SequenceControlExplorer1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/utils/JucHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/utils/PrincipleUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/utils/Sleeper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/utils/SyncLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestWhy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/asdfsadf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/ListNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/ListNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/Pair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/utils/AlgoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/utils/AlgoUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/core/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/Executor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程的方法/SleepAndYieldExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程的方法/SleepAndYieldExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程的方法/ThreadMethodsExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程的方法/ThreadMethodsExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/JavaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/JavaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/jdbc/JdbcExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/jdbc/JdbcExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/object/ObjectBytesDetailExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/object/ObjectBytesDetailExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/保护性暂停/GuardedObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/保护性暂停/GuardedObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/test_data/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/test_data/TestData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Memory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Performance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Performance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/utils/StopWatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/StopWatch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +63,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="AnnotationType" />
-        <option value="Class" />
+        <option value="Interface" />
         <option value="explorer" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -110,7 +127,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -124,6 +141,8 @@
       <recent name="E:\codespaces\eden\javase-principle-explorer\src\main\java\com\yiren\tmp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yiren.principle.juc.两阶段终止模式" />
+      <recent name="com.yiren.principle.juc.顺序控制" />
       <recent name="com.yiren.entity" />
       <recent name="com.yiren.principle.javase.datastructure.hashmap" />
     </key>
@@ -133,20 +152,7 @@
       <command value="asListNode" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.GuardedSuspensionExplorer">
-    <configuration name="DynamicProxyExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.javase.动态代理.DynamicProxyExplorer" />
-      <module name="javase-principle-explorer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yiren.principle.javase.动态代理.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="GCAnalyzerExplorer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yiren.principle.jvm.heap.GCAnalyzerExplorer" />
       <module name="javase-principle-explorer" />
@@ -161,12 +167,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GuardedSuspensionExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.juc.设计模式.保护性暂停.GuardedSuspensionExplorer" />
+    <configuration name="ImmutableTypesExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.juc.不可变类型.ImmutableTypesExplorer" />
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yiren.principle.juc.设计模式.保护性暂停.*" />
+          <option name="PATTERN" value="com.yiren.principle.juc.不可变类型.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JdbcExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.javase.jdbc.JdbcExplorer" />
+      <module name="javase-principle-explorer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yiren.principle.javase.jdbc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -187,20 +206,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SyncByteCodeExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.juc.Sync原理.SyncByteCodeExplorer" />
-      <module name="javase-principle-explorer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yiren.principle.juc.Sync原理.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JavaTest.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestWhy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.tmp.TestWhy" />
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
@@ -208,29 +215,38 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.yiren.tmp" />
-      <option name="MAIN_CLASS_NAME" value="com.yiren.tmp.JavaTest" />
-      <option name="METHOD_NAME" value="test2" />
-      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UnsafeFunctionExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.juc.Unsafe.UnsafeFunctionExplorer" />
+      <module name="javase-principle-explorer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yiren.principle.juc.Unsafe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.GCAnalyzerExplorer" />
-      <item itemvalue="Application.GuardedSuspensionExplorer" />
+      <item itemvalue="Application.ImmutableTypesExplorer" />
+      <item itemvalue="Application.JdbcExplorer" />
+      <item itemvalue="Application.TestWhy" />
+      <item itemvalue="Application.UnsafeFunctionExplorer" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.DynamicProxyExplorer" />
-      <item itemvalue="Application.SyncByteCodeExplorer" />
-      <item itemvalue="JUnit.JavaTest.test2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GuardedSuspensionExplorer" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.JavaTest.test2" />
-        <item itemvalue="Application.SyncByteCodeExplorer" />
-        <item itemvalue="Application.DynamicProxyExplorer" />
+        <item itemvalue="Application.ImmutableTypesExplorer" />
+        <item itemvalue="Application.JdbcExplorer" />
+        <item itemvalue="Application.TestWhy" />
+        <item itemvalue="Application.UnsafeFunctionExplorer" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +300,21 @@
       <workItem from="1694483912097" duration="55000" />
       <workItem from="1694483990589" duration="37000" />
       <workItem from="1694484045802" duration="356000" />
-      <workItem from="1694484916898" duration="3716000" />
+      <workItem from="1694484916898" duration="16702000" />
+      <workItem from="1694583498505" duration="10226000" />
+      <workItem from="1694602600808" duration="19000" />
+      <workItem from="1694602862421" duration="211000" />
+      <workItem from="1694603760521" duration="2759000" />
+      <workItem from="1694616369951" duration="353000" />
+      <workItem from="1694671227629" duration="9135000" />
+      <workItem from="1694688542839" duration="3692000" />
+      <workItem from="1694843488650" duration="2779000" />
+      <workItem from="1694848364571" duration="10426000" />
+      <workItem from="1694880292819" duration="67000" />
+      <workItem from="1694950401607" duration="6556000" />
+      <workItem from="1695093429696" duration="4605000" />
+      <workItem from="1695123918440" duration="2400000" />
+      <workItem from="1695538255862" duration="2774000" />
     </task>
     <task id="LOCAL-00001" summary="Java 原理 探索 project 第一次 commit">
       <option name="closed" value="true" />
@@ -310,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693485676394</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="改进代码,新增JUC的线程知识">
+      <option name="closed" value="true" />
+      <created>1694497174674</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694497174674</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,6 +367,16 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/BiasedLockExplorer.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/BiasedLockExplorer.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
