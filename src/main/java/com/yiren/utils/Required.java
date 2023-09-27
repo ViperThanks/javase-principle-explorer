@@ -2,7 +2,7 @@ package com.yiren.utils;
 
 /**
  * <p>
- * desc:
+ * desc: 抄 caffeine 要求符合状态
  * </p>
  *
  * @author weilin
@@ -11,9 +11,10 @@ package com.yiren.utils;
 public final class Required {
 
     /**
-     * 抄 caffeine 的
+     * 如果不符合状态就 throw 异常
+     *
      * @param expectStatus 期待的状态
-     * @param errMessage 错误信息
+     * @param errMessage   错误信息
      */
     public static void requiredStatus(boolean expectStatus, String errMessage) {
         if (!expectStatus)
@@ -21,7 +22,8 @@ public final class Required {
     }
 
     /**
-     * 上面的重载方法
+     * 如果不符合状态就 throw 异常
+     *
      * @param expectStatus 期待的状态
      */
     public static void requiredStatus(boolean expectStatus) {
@@ -30,17 +32,39 @@ public final class Required {
     }
 
 
-    static void requiredNonnegative(int value, String name) {
+    /**
+     * 要求非负数
+     *
+     * @param value int型的值
+     * @param name  参数的名字
+     */
+    public static void requiredNonnegative(int value, String name) {
         if (value < 0)
             throw new IllegalArgumentException(name + " cannot be negative but was: " + value);
     }
 
 
-    static void requiredNonnegative(long value, String name) {
+    /**
+     * 要求非负数
+     *
+     * @param value long型的值
+     * @param name  参数名字
+     */
+    public static void requiredNonnegative(long value, String name) {
         if (value < 0)
             throw new IllegalArgumentException(name + " cannot be negative but was: " + value);
     }
 
+    /**
+     *  要求正数
+     * @param value int 型的值
+     * @param name 参数名字
+     */
+    public static void requirePositive(int value, String name) {
+        if (value <= 0) {
+            throw new IllegalArgumentException(name + " must be positive but was: " + value);
+        }
+    }
 
 
 }
