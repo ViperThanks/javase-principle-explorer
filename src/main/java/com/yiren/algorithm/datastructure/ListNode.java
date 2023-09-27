@@ -5,6 +5,7 @@ package com.yiren.algorithm.datastructure;
  * copy by leetcode
  */
 public class ListNode {
+
     public
     int val;
     public
