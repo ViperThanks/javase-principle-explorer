@@ -1,6 +1,5 @@
 package com.yiren.principle.juc.售票;
 
-import com.yiren.tmp.Main;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

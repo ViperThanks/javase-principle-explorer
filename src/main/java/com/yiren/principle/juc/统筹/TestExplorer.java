@@ -2,7 +2,6 @@ package com.yiren.principle.juc.统筹;
 
 import com.yiren.core.Executor;
 import com.yiren.core.Explorer;
-import com.yiren.tmp.Main;
 
 /**
  * <p>
