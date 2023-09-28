@@ -1,6 +1,6 @@
-package com.yiren.principle.javase.手写Redis.test;
+package com.yiren.手写Redis.test;
 
-import com.yiren.principle.javase.手写Redis.一实现固定缓存大小.LruMap;
+import com.yiren.手写Redis.一实现固定缓存大小.LruMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

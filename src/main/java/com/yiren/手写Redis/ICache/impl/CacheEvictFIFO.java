@@ -1,8 +1,8 @@
-package com.yiren.principle.javase.手写Redis.ICache.impl;
+package com.yiren.手写Redis.ICache.impl;
 
-import com.yiren.principle.javase.手写Redis.ICache.ICache;
-import com.yiren.principle.javase.手写Redis.ICache.ICacheEvict;
-import com.yiren.principle.javase.手写Redis.ICache.ICacheEvictContext;
+import com.yiren.手写Redis.ICache.ICache;
+import com.yiren.手写Redis.ICache.ICacheEvict;
+import com.yiren.手写Redis.ICache.ICacheEvictContext;
 
 import java.util.LinkedList;
 import java.util.Queue;

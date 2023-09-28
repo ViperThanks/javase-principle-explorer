@@ -1,9 +1,8 @@
-package com.yiren.principle.javase.手写Redis.ICache.impl;
+package com.yiren.手写Redis.ICache.impl;
 
-import com.yiren.principle.javase.手写Redis.ICache.ICache;
-import com.yiren.principle.javase.手写Redis.ICache.ICacheEvict;
+import com.yiren.手写Redis.ICache.ICache;
+import com.yiren.手写Redis.ICache.ICacheEvict;
 
-import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Set;

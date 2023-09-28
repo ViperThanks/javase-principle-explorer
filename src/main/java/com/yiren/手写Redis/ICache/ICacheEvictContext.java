@@ -1,4 +1,4 @@
-package com.yiren.principle.javase.手写Redis.ICache;
+package com.yiren.手写Redis.ICache;
 
 /**
  * 驱除策略

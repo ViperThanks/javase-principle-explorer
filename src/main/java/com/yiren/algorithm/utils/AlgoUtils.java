@@ -262,10 +262,6 @@ public class AlgoUtils {
 
     //--- --- ---  特殊数据结构tostring --- --- ---
 
-    /**
-     * 链表节点之间的分隔符
-     */
-    private static final String LIST_NODE_SEPARATOR = " -> ";
 
 
     /**
