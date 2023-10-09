@@ -86,6 +86,7 @@ public final class CacheBuilder<K, V> {
         context.cacheEvict(evict);
         context.map(map);
         context.size(size);
-        return new Cache<>(context);
+//        return new Cache<>(context);
+        return null;
     }
 }
