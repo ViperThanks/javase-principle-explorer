@@ -1,7 +1,7 @@
-package com.yiren.手写Redis.ICache.impl;
+package com.yiren.MyRedis.ICache.impl;
 
-import com.yiren.手写Redis.ICache.ICache;
-import com.yiren.手写Redis.ICache.ICacheEvict;
+import com.yiren.MyRedis.ICache.ICache;
+import com.yiren.MyRedis.ICache.ICacheEvict;
 
 import java.util.Collection;
 import java.util.Map;
@@ -23,6 +23,11 @@ public class Cache<K, V> implements ICache<K, V> {
 
     private ICacheEvict<K, V> cacheEvict;
 
+    public Cache(CacheContext<K,V> context) {
+        this.map = context.map();
+        this.sizeLimit = context.size();
+        this.cacheEvict = context.cacheEvict();
+    }
 
     @Override
     public V put(K key, V value) {

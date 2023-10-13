@@ -1,8 +1,8 @@
-package com.yiren.手写Redis.ICache.impl;
+package com.yiren.MyRedis.ICache.impl;
 
 
-import com.yiren.手写Redis.ICache.ICache;
-import com.yiren.手写Redis.ICache.ICacheEvictContext;
+import com.yiren.MyRedis.ICache.ICache;
+import com.yiren.MyRedis.ICache.ICacheEvictContext;
 
 /**
  * 驱除策略

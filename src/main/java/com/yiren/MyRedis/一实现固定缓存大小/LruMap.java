@@ -1,4 +1,4 @@
-package com.yiren.手写Redis.一实现固定缓存大小;
+package com.yiren.MyRedis.一实现固定缓存大小;
 
 import com.google.common.primitives.Ints;
 

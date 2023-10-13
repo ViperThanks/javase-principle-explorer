@@ -1,4 +1,4 @@
-package com.yiren.手写Redis.ICache;
+package com.yiren.MyRedis.ICache;
 
 import java.util.Map;
 

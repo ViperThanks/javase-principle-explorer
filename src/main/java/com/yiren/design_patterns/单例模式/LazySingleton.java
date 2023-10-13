@@ -1,5 +1,7 @@
 package com.yiren.design_patterns.单例模式;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * desc:  基于dcl double checked locking 的饿汉模式的单例模式
@@ -8,7 +10,7 @@ package com.yiren.design_patterns.单例模式;
  * @author weilin
  * @since 15/9/2023
  */
-public class LazySingleton {
+public class LazySingleton implements Serializable {
 
   //ensure
   private LazySingleton(){}
@@ -31,9 +33,8 @@ public class LazySingleton {
     }
     return INSTANCE;
   }
-
-
-
-
+  public Object readResolve(){
+    return getInstance();
+  }
 
 }
