@@ -46,10 +46,9 @@ public class MemoryUtil {
    * @return 字节数组
    */
   public static byte[] getBytes(int size, Memory memory) {
-    long tmp = size * memory.toB();
-    if (tmp > Integer.MAX_VALUE)
-      throw new IllegalArgumentException("too big");
-    return new byte[(int) (memory.toB() * size)];
+    Required.requiredNonnegative(size, "size");
+    int len = (int) Math.min(Integer.MAX_VALUE, size * memory.toB());
+    return new byte[len];
   }
 
 

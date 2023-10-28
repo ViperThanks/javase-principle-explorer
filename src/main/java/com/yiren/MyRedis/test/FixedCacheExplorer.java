@@ -30,14 +30,14 @@ public class FixedCacheExplorer implements Explorer {
         .map(new HashMap<>())
         .evict(CacheEvicts.fifo())
         .build();
-    cache.put(1, 1);
-    cache.put(2, 2);
-    cache.put(9, 3);
-    LOGGER.info("cache for each {}", cache.entrySet());
-    cache.put(3, 3);
-    LOGGER.info("cache for each {}", cache.entrySet());
-    cache.put(5, 8);
-    LOGGER.info("cache for each {}", cache.entrySet());
+    cache.put("hello", "adslf");
+    //业务
+    cache.put("why", "java");
+    cache.put("yes", "www");
+    LOGGER.info("entry set : {}",cache.entrySet());
+    cache.put("new","genshi");
+    LOGGER.info("entry set : {}",cache.entrySet());
+
   }
 
   public static void main(String[] args) {

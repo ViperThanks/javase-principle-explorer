@@ -26,6 +26,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.19</version>
+        </dependency>
+
         <!--        aspect j-->
         <dependency>
             <groupId>org.aspectj</groupId>

@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.yiren.algorithm.datastructure.ListNode;
 import com.yiren.algorithm.datastructure.Pair;
 
+import com.yiren.algorithm.datastructure.Triple;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.BufferedReader;
@@ -291,4 +292,7 @@ public class AlgoUtils {
         return Arrays.toString(arr);
     }
 
+    public static <T, V, U> String toString(Triple<T, U, V> triple) {
+        return triple == null ? "null" : triple.toString();
+    }
 }
