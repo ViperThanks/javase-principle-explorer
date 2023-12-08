@@ -26,6 +26,9 @@ public class CommonUtils {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(CommonUtils.class);
   private static final String LOGGER_PREFIX = "CommonUtils ---> ";
+  /**
+   * 默认长度，一般都是生成数组的默认长度
+   */
   private static final int DEFAULT_SIZE = 10;
 
   //--- 生成的方法们 --- START ---
@@ -201,8 +204,14 @@ public class CommonUtils {
 
   //--- 生成的方法们 --- END ---
 
+//-------------------------------------------转换方法-----------------------------------------
 
-  //
+  @SafeVarargs
+  public static <T> T[] toArray(final T... items) {
+    return items;
+  }
+
+//-------------------------------------------转换方法-----------------------------------------
 
   //日常使用的算法方法
 
