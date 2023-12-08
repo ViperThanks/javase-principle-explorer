@@ -10,17 +10,17 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class Executor {
 
-  private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(Executor.class);
+  private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(Executor.class);
 
 
   public static void executeExplorer(Explorer explorer) {
     try {
-      log.info("--- --- --- ---execute explorerClass: {} \n", explorer.getClass().getSimpleName());
+      LOGGER.info("--- --- --- ---execute explorerClass: {} \n", explorer.getClass().getSimpleName());
       explorer.explore();
     } catch (Exception e) {
-      log.error("catch explorer inner error \n ", e);
+      LOGGER.error("catch explorer inner error \n ", e);
     }
-    log.info("--- --- --- ---execute explorerClass: {} main thread end \n", explorer.getClass().getSimpleName());
+    LOGGER.info("--- --- --- ---execute explorerClass: {} main thread end \n", explorer.getClass().getSimpleName());
   }
 
   /**
@@ -32,17 +32,17 @@ public class Executor {
   public static void executeExplorer(Class<? extends Explorer>... explorerClazzs) {
     for (Class<? extends Explorer> explorerClazz : explorerClazzs) {
       String clazzName = explorerClazz.getSimpleName();
-      log.info("--- --- --- --- execute explorerClass: [{}] main thread start", clazzName);
+      LOGGER.info("--- --- --- --- execute explorerClass: [{}] main thread start", clazzName);
       Explorer explorer = null;
       try {
         explorer = explorerClazz.getConstructor().newInstance();
       } catch (Exception e) {
-        log.error("execute explorerClass: [{}] error", clazzName);
-        log.error("ensure that the explorerClass has a no-args constructor");
-        log.error("ensure that the explorerClass constructor is public");
+        LOGGER.error("execute explorerClass: [{}] error", clazzName);
+        LOGGER.error("ensure that the explorerClass has a no-args constructor");
+        LOGGER.error("ensure that the explorerClass constructor is public");
       }
       if (explorer == null) {
-        log.error("explorer is null, skip this explorerClass: [{}] ", clazzName);
+        LOGGER.error("explorer is null, skip this explorerClass: [{}] ", clazzName);
         continue;
       }
       long cost = 0L;
@@ -52,9 +52,9 @@ public class Executor {
         long end = System.currentTimeMillis();
         cost = end - start;
       } catch (Exception e) {
-        log.error("catch inner error \n ", e);
+        LOGGER.error("catch inner error \n ", e);
       }
-      log.info("--- --- --- --- execute explorerClass: [{}] main thread end cost {} ms\n", clazzName, cost);
+      LOGGER.info("--- --- --- --- execute explorerClass: [{}] main thread end cost {} ms\n", clazzName, cost);
     }
   }
 
@@ -68,16 +68,16 @@ public class Executor {
 
     for (Class<? extends AlgorithmTemplate> algoClazz : algoClazzs) {
       try {
-        log.info("execute explorerClass: {} \n", algoClazz.getSimpleName());
+        LOGGER.info("execute explorerClass: {} \n", algoClazz.getSimpleName());
         AlgorithmTemplate template = algoClazz.getConstructor().newInstance();
         template.execute();
       } catch (InstantiationException
                | IllegalAccessException
                | NoSuchMethodException
                | InvocationTargetException e) {
-        log.error("execute explorerClass:{} error", algoClazz.getSimpleName());
-        log.error("ensure that the explorerClass has a no-args constructor");
-        log.error("ensure that the explorerClass constructor is public");
+        LOGGER.error("execute explorerClass:{} error", algoClazz.getSimpleName());
+        LOGGER.error("ensure that the explorerClass has a no-args constructor");
+        LOGGER.error("ensure that the explorerClass constructor is public");
       }
     }
   }

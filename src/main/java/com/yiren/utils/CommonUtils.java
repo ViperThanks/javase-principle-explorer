@@ -11,8 +11,6 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -24,7 +22,9 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("unused")
 public class CommonUtils {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(CommonUtils.class);
+  private CommonUtils(){throw new AssertionError("No com.yiren.utils.CommonUtils instances for you!");}
+
+  private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(CommonUtils.class);
   private static final String LOGGER_PREFIX = "CommonUtils ---> ";
   /**
    * 默认长度，一般都是生成数组的默认长度
