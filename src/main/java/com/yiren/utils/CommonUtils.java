@@ -22,7 +22,9 @@ import java.util.concurrent.TimeUnit;
 @SuppressWarnings("unused")
 public class CommonUtils {
 
-  private CommonUtils(){throw new AssertionError("No com.yiren.utils.CommonUtils instances for you!");}
+  private CommonUtils() {
+    throw new AssertionError("No com.yiren.utils.CommonUtils instances for you!");
+  }
 
   private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(CommonUtils.class);
   private static final String LOGGER_PREFIX = "CommonUtils ---> ";
@@ -389,7 +391,8 @@ public class CommonUtils {
   public static sun.misc.Unsafe getUnsafe() {
     return PrincipleHelper.getUnsafe();
   }
-//-------------------------------------------底层探索用的-----------------------------------------
+
+  //-------------------------------------------底层探索用的-----------------------------------------
 //-------------------------------------------流的封装-----------------------------------------
   private static final class StreamWrapper {
 
@@ -411,10 +414,7 @@ public class CommonUtils {
     return StreamWrapper.wrap(os);
   }
 
-
-
 //-------------------------------------------流的封装-----------------------------------------
-
 
 //-------------------------------------------睡眠工具类-----------------------------------------
 
@@ -532,6 +532,7 @@ public class CommonUtils {
 
     /**
      * 获取任务执行时间,单位纳秒
+     *
      * @param task 任务
      * @return 任务执行时间
      */
@@ -541,6 +542,7 @@ public class CommonUtils {
 
     /**
      * 获取任务执行时间,单位毫秒
+     *
      * @param task 任务
      * @return 任务执行时间
      */
@@ -551,6 +553,7 @@ public class CommonUtils {
 
     /**
      * 获取任务执行时间,单位 timeUnit
+     *
      * @param task 任务
      * @return 任务执行时间
      */
@@ -560,6 +563,7 @@ public class CommonUtils {
 
     /**
      * 获取任务执行时间,单位 timeUnit
+     *
      * @param task 任务
      * @return 任务执行时间
      */
@@ -573,21 +577,19 @@ public class CommonUtils {
     }
   }
 
-  public static long calculateNanoseconds(Runnable task){
+  public static long calculateNanoseconds(Runnable task) {
     return StopWatch.calculateNanoseconds(task);
   }
 
-  public static long calculateMilliseconds(Runnable task){
+  public static long calculateMilliseconds(Runnable task) {
     return StopWatch.calculateMilliseconds(task);
   }
 
-  public static long calculateNanoseconds(Runnable task, TimeUnit unit) {
+  public static long calculate(Runnable task, TimeUnit unit) {
     return StopWatch.calculate(task, unit);
   }
 
 //-------------------------------------------检测时间类-----------------------------------------
-
-
 
 //-------------------------------------------检查方法-----------------------------------------
 
