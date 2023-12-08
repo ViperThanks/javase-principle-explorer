@@ -32,25 +32,29 @@ public class Executor {
   public static void executeExplorer(Class<? extends Explorer>... explorerClazzs) {
     for (Class<? extends Explorer> explorerClazz : explorerClazzs) {
       String clazzName = explorerClazz.getSimpleName();
-      log.info("--- --- --- --- execute explorerClass: {} main thread start", clazzName);
+      log.info("--- --- --- --- execute explorerClass: [{}] main thread start", clazzName);
       Explorer explorer = null;
       try {
         explorer = explorerClazz.getConstructor().newInstance();
       } catch (Exception e) {
-        log.error("execute explorerClass:{} error", clazzName);
+        log.error("execute explorerClass: [{}] error", clazzName);
         log.error("ensure that the explorerClass has a no-args constructor");
         log.error("ensure that the explorerClass constructor is public");
       }
       if (explorer == null) {
-        log.error("explorer is null, skip this explorerClass: {}", clazzName);
+        log.error("explorer is null, skip this explorerClass: [{}] ", clazzName);
         continue;
       }
+      long cost = 0L;
       try {
+        long start = System.currentTimeMillis();
         explorer.explore();
+        long end = System.currentTimeMillis();
+        cost = end - start;
       } catch (Exception e) {
         log.error("catch inner error \n ", e);
       }
-      log.info("--- --- --- --- execute explorerClass: {} main thread end \n", clazzName);
+      log.info("--- --- --- --- execute explorerClass: [{}] main thread end cost {} ms\n", clazzName, cost);
     }
   }
 

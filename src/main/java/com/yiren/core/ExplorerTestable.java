@@ -1,8 +1,9 @@
 package com.yiren.core;
 
-import com.yiren.entity.Employee;
-import com.yiren.entity.User;
+import static com.yiren.utils.CommonUtils.getRandomLong;
+import static com.yiren.utils.CommonUtils.getRandomString;
 
+import com.yiren.entity.User;
 import java.time.LocalDateTime;
 
 /**
@@ -32,6 +33,18 @@ public interface ExplorerTestable extends Explorer {
     .setIcon("test")
     .setCreateTime(LocalDateTime.now())
     .setUpdateTime(LocalDateTime.now());
+
+  default User getTestUser() {
+    return new User()
+        .setId(getRandomLong(1000))
+        .setPhone(getRandomString(11))
+        .setPassword(getRandomString(15, true))
+        .setNickName(getRandomString(5))
+        .setIcon(getRandomString(5))
+        .setCreateTime(LocalDateTime.now())
+        .setUpdateTime(LocalDateTime.now());
+  }
+
 
 
 }
