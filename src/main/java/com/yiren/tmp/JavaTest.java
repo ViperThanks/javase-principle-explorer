@@ -2,37 +2,22 @@ package com.yiren.tmp;
 
 import static com.yiren.algorithm.utils.Python.range;
 
-import com.alibaba.fastjson.JSON;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import com.yiren.algorithm.AlgorithmTemplate;
 import com.yiren.algorithm.array.ArraySortAlgorithmTemplate;
 import com.yiren.algorithm.array.QuickSort;
 import com.yiren.algorithm.datastructure.Pair;
 import com.yiren.algorithm.utils.AlgoUtils;
-import com.yiren.algorithm.utils.Python;
 import com.yiren.core.Executor;
-import com.yiren.core.Explorer;
 import com.yiren.core.ExplorerTestable;
 import com.yiren.entity.Employee;
 import com.yiren.entity.User;
-import com.yiren.principle.javase.零拷贝技术.ZeroCopyExplorer;
-import com.yiren.utils.LogicDataGenerator;
-import com.yiren.utils.Performance;
-import com.yiren.utils.Printer;
 import com.yiren.utils.StopWatch;
-import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.apache.commons.lang3.ArrayUtils;
@@ -40,7 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.util.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,8 +43,7 @@ public class JavaTest implements ExplorerTestable {
 
 
   public static void main(String[] args) {
-
-
+    Executor.executeExplorer(JavaTest.class);
   }
 
   /**
@@ -71,7 +54,11 @@ public class JavaTest implements ExplorerTestable {
   @Override
   public void explore() throws Exception {
 
+    Map<Integer, Integer> map = ImmutableMap.of();
+
   }
+
+
 
 
   @Data
@@ -143,7 +130,7 @@ public class JavaTest implements ExplorerTestable {
         new Pair<>("guava", s -> s + 2));
     StringBuilder sb = new StringBuilder();
     for (Pair<String, Function<String, String>> pair : list) {
-      sb.append(pair.getKey()).append(':').append(pair.getValue().apply(pair.getKey()));
+      sb.append(pair.getFirst()).append(':').append(pair.getSecond().apply(pair.getFirst()));
     }
     System.out.println("sb = " + sb);
   }

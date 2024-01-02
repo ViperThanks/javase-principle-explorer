@@ -1,9 +1,16 @@
 package com.yiren.MyRedis.test;
 
+import com.yiren.entity.PrincipleField;
+import com.yiren.principle.utils.PrincipleUtil;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import org.openjdk.jol.info.ClassLayout;
 
 import java.lang.reflect.Field;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import sun.misc.Unsafe;
 
 /**
  * <p>
@@ -15,13 +22,11 @@ import java.lang.reflect.Field;
  */
 public class TestString {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(TestString.class);
+
+
     public static void main(String[] args) throws Exception{
-        String s = new String("1234567890");
-        String printable = ClassLayout.parseInstance(s).toPrintable();
-        System.out.println(printable);
-        Field value = String.class.getDeclaredField("value");
-        value.setAccessible(true);
-        String printable1 = ClassLayout.parseInstance(value).toPrintable();
-        System.out.println(printable1);
+        Unsafe unsafe = PrincipleUtil.getUnsafe();
+        System.out.println(unsafe);
     }
 }

@@ -7,10 +7,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
+import sun.misc.Unsafe;
 
 
 /**
@@ -20,14 +27,8 @@ import java.util.concurrent.TimeUnit;
  * @since 2023-12-7
  */
 @SuppressWarnings("unused")
-public class CommonUtils {
+public abstract class CommonUtils {
 
-  private CommonUtils() {
-    throw new AssertionError("No com.yiren.utils.CommonUtils instances for you!");
-  }
-
-  private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(CommonUtils.class);
-  private static final String LOGGER_PREFIX = "CommonUtils ---> ";
   /**
    * 默认长度，一般都是生成数组的默认长度
    */
@@ -37,27 +38,27 @@ public class CommonUtils {
 
 
   public static double getRandomDouble(double from, double to) {
-    return RandomHolder.RANDOM.nextDouble(from, to);
+    return RandomHolder.THREAD_LOCAL_RANDOM.nextDouble(from, to);
   }
 
   public static double getRandomDouble(double to) {
-    return RandomHolder.RANDOM.nextDouble(to);
+    return RandomHolder.THREAD_LOCAL_RANDOM.nextDouble(to);
   }
 
   public static int getRandomInt(int from, int to) {
-    return RandomHolder.RANDOM.nextInt(from, to);
+    return RandomHolder.THREAD_LOCAL_RANDOM.nextInt(from, to);
   }
 
   public static int getRandomInt(int to) {
-    return RandomHolder.RANDOM.nextInt(to);
+    return RandomHolder.THREAD_LOCAL_RANDOM.nextInt(to);
   }
 
   public static long getRandomLong(int from, int to) {
-    return RandomHolder.RANDOM.nextLong(from, to);
+    return RandomHolder.THREAD_LOCAL_RANDOM.nextLong(from, to);
   }
 
   public static long getRandomLong(int to) {
-    return RandomHolder.RANDOM.nextLong(to);
+    return RandomHolder.THREAD_LOCAL_RANDOM.nextLong(to);
   }
 
   /**
@@ -70,7 +71,7 @@ public class CommonUtils {
     requirePositive(length, "length");
     int[] arr = new int[length];
     for (int i = 0; i < length; i++) {
-      arr[i] = RandomHolder.RANDOM.nextInt(100);
+      arr[i] = RandomHolder.THREAD_LOCAL_RANDOM.nextInt(100);
     }
     return arr;
   }
@@ -87,9 +88,29 @@ public class CommonUtils {
     requiredStatus(from <= to, "from must less than to");
     int[] arr = new int[length];
     for (int i = 0; i < length; i++) {
-      arr[i] = RandomHolder.RANDOM.nextInt(from, to);
+      arr[i] = RandomHolder.THREAD_LOCAL_RANDOM.nextInt(from, to);
     }
     return arr;
+  }
+
+  /**
+   * 生成随机数组
+   *
+   * @param length 长度
+   * @return 随机数组
+   */
+  @SuppressWarnings("unchecked")
+  public static <T> T[] getRandomArr(int length, Supplier<? extends T> supplier) {
+    T first = null;
+    try {
+      requiredStatus(supplier != null && (first = supplier.get()) != null, "supplier or supplier get is null !");
+    } catch (Exception e) {
+      throw new IllegalArgumentException("supplier is illegal arg", e);
+    }
+    T[] ts = (T[]) Array.newInstance(first.getClass(), length);
+    ts[0] = first;
+    for (int i = 1; i < ts.length; i++) ts[i] = supplier.get();
+    return ts;
   }
 
 
@@ -156,7 +177,7 @@ public class CommonUtils {
     requiredStatus(from <= to, "from must less than to");
     double[] arr = new double[length];
     for (int i = 0; i < length; i++) {
-      arr[i] = RandomHolder.RANDOM.nextDouble(from, to);
+      arr[i] = RandomHolder.THREAD_LOCAL_RANDOM.nextDouble(from, to);
     }
     return arr;
   }
@@ -171,7 +192,7 @@ public class CommonUtils {
   public static double[] getRandomDoubleArr(int length) {
     double[] arr = new double[length];
     for (int i = 0; i < length; i++) {
-      arr[i] = RandomHolder.RANDOM.nextDouble();
+      arr[i] = RandomHolder.THREAD_LOCAL_RANDOM.nextDouble();
     }
     return arr;
   }
@@ -185,7 +206,7 @@ public class CommonUtils {
   public static float[] getRandomFloatArr(int length) {
     float[] arr = new float[length];
     for (int i = 0; i < length; i++) {
-      arr[i] = RandomHolder.RANDOM.nextFloat();
+      arr[i] = RandomHolder.THREAD_LOCAL_RANDOM.nextFloat();
     }
     return arr;
   }
@@ -199,7 +220,7 @@ public class CommonUtils {
   public static long[] getRandomLongArr(int length) {
     long[] arr = new long[length];
     for (int i = 0; i < length; i++) {
-      arr[i] = RandomHolder.RANDOM.nextLong();
+      arr[i] = RandomHolder.THREAD_LOCAL_RANDOM.nextLong();
     }
     return arr;
   }
@@ -218,7 +239,10 @@ public class CommonUtils {
   //日常使用的算法方法
 
   /**
-   * 数组交换 i ， j
+   * 数组元素的交换
+   * @param array 目标数组
+   * @param i 索引i
+   * @param j 索引j
    */
   public static void swap(Object array, int i, int j) {
     requiredStatus(array != null && array.getClass().isArray(), "array参数不是数组");
@@ -233,9 +257,13 @@ public class CommonUtils {
   /**
    * 基于类的懒加载实现的不用random对象的时候就不创建
    */
-  private static final class RandomHolder {
+  public static final class RandomHolder {
 
-    private static final ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
+    public static final ThreadLocalRandom THREAD_LOCAL_RANDOM = ThreadLocalRandom.current();
+
+    public static final Random RANDOM = new Random();
+
+    public static final SecureRandom SECURE_RANDOM = new SecureRandom();
   }
 
 //-------------------------------------------字符串-----------------------------------------
@@ -271,7 +299,7 @@ public class CommonUtils {
     }
 
     private static String generateString(int size, boolean includeNumber) {
-      return includeNumber ? generateString(AlphabetPlusDigital, size) : generateString(Alphabet, size);
+      return generateString(includeNumber ? AlphabetPlusDigital : Alphabet, size);
     }
 
     private static String generateString(String baseContext, int size) {
@@ -283,7 +311,7 @@ public class CommonUtils {
       int index = baseCharArray.length;
       StringBuilder sb = new StringBuilder(size);
       for (int i = 0; i < size; i++) {
-        final int finalIndex = RandomHolder.RANDOM.nextInt(index);
+        final int finalIndex = RandomHolder.THREAD_LOCAL_RANDOM.nextInt(index);
         sb.append(baseCharArray[finalIndex]);
       }
       return sb.toString();
@@ -354,14 +382,13 @@ public class CommonUtils {
   /**
    * 原理帮助类，最主要是为了探索原理用的，比如 常用的Unsafe类
    *
-   * @see sun.misc.Unsafe
+   * @see Unsafe
    */
   private static final class PrincipleHelper {
 
-    private static final Class<sun.misc.Unsafe> UNSAFE_CLASS = sun.misc.Unsafe.class;
+    private static final Class<Unsafe> UNSAFE_CLASS = Unsafe.class;
     private static final String UNSAFE_FIELD_NAME = "theUnsafe";
-
-    private static volatile sun.misc.Unsafe unsafe;
+    private static volatile Unsafe unsafe;
 
     /**
      * 获取unsafe 基于double check lock的懒汉单例 + 反射
@@ -369,17 +396,16 @@ public class CommonUtils {
      * @return unsafe
      */
 
-    public static sun.misc.Unsafe getUnsafe() {
+    public static Unsafe getUnsafe() {
       if (unsafe == null) {
-        synchronized (CommonUtils.class) {
+        synchronized (PrincipleHelper.class) {
           if (unsafe == null) {
             try {
               Field unsafeField = UNSAFE_CLASS.getDeclaredField(UNSAFE_FIELD_NAME);
               unsafeField.setAccessible(true);
-              unsafe = (sun.misc.Unsafe) unsafeField.get(null);
+              unsafe = (Unsafe) unsafeField.get(null);
             } catch (NoSuchFieldException | IllegalAccessException e) {
-              LOGGER.error(LOGGER_PREFIX + "反射获取失败，原因是JDK8之后反射麻烦了");
-              throw new RuntimeException(e);
+              throw new RuntimeException("反射获取失败，原因是JDK8之后反射麻烦了",e);
             }
           }
         }
@@ -388,7 +414,7 @@ public class CommonUtils {
     }
   }
 
-  public static sun.misc.Unsafe getUnsafe() {
+  public static Unsafe getUnsafe() {
     return PrincipleHelper.getUnsafe();
   }
 
@@ -517,6 +543,113 @@ public class CommonUtils {
   }
 
 //-------------------------------------------睡眠工具类-----------------------------------------
+
+//-------------------------------------------输出工具类-----------------------------------------
+
+  private static final class PrinterStream {
+
+    private static final PrintStream DEFAULT_OUT_STREAM = System.out;
+    private static final PrintStream DEFAULT_ERR_STREAM = System.err;
+  }
+
+  private static final class PrinterHelper{
+
+    /**
+     * 已重载打印的类型
+     */
+    private static final Class<?>[] supportClass =
+        {
+
+        };
+
+
+    //ensure supportClass is sorted
+    // accelerate search
+    private static final String[] supportClassStr = Arrays.stream(supportClass)
+        .map(Class::getSimpleName)
+        .sorted()
+        .toArray(String[]::new);
+
+    private static boolean isSupport(Class<?> clazz) {
+      return Arrays.binarySearch(supportClassStr, clazz.getSimpleName()) >= 0;
+    }
+    /**
+     * 将对象转换为字符串
+     *
+     * @param obj 对象
+     * @return 字符串
+     */
+    private static String toString(Object obj) {
+      if (obj == null) {
+        return "null";
+      }
+      final Class<?> aClass = obj.getClass();
+      //反射去调用
+      Object res = null;
+      try {
+        final Method toString = PrinterHelper.class.getDeclaredMethod("toString0", aClass);
+        res = toString.invoke(null, obj);
+      } catch (Exception e) {
+        PrinterStream.DEFAULT_ERR_STREAM.println("反射调用toString方法失败" + e.getMessage());
+      }
+      return (String) res;
+    }
+  }
+
+  private static final class Printer {
+
+    private static void print(Object object, String end) {
+      if (object == null || end == null) {
+        return;
+      }
+      final Class<?> clazz = object.getClass();
+      String line;
+      if (clazz.isArray()) {
+        if (object instanceof int[]) {
+          line = Arrays.toString((int[]) object);
+        } else if (object instanceof double[]) {
+          line = Arrays.toString((double[]) object);
+        } else if (object instanceof char[]) {
+          line = Arrays.toString((char[]) object);
+        } else if (object instanceof byte[]) {
+          line = Arrays.toString((byte[]) object);
+        } else if (object instanceof short[]) {
+          line = Arrays.toString((short[]) object);
+        } else if (object instanceof long[]) {
+          line = Arrays.toString((long[]) object);
+        } else if (object instanceof float[]) {
+          line = Arrays.toString((float[]) object);
+        } else if (object instanceof boolean[]) {
+          line = Arrays.toString((boolean[]) object);
+        } else {
+          line = Arrays.toString((Object[]) object);
+        }
+      } else if (object instanceof String) {
+        line = (String) object;
+      } else if (PrinterHelper.isSupport(clazz)) {
+        line = PrinterHelper.toString(object);
+      } else {
+        line = String.valueOf(object);
+      }
+      PrinterStream.DEFAULT_OUT_STREAM.print(line);
+      PrinterStream.DEFAULT_OUT_STREAM.print(end);
+    }
+  }
+
+  /**
+   * 动态生成字符串
+   */
+  public static void println(Object o) {
+    Printer.print(o,"\n");
+  }
+
+  public static void print(Object o) {
+    Printer.print(o,"");
+  }
+
+
+
+//-------------------------------------------输出工具类-----------------------------------------
 
 //-------------------------------------------检测时间类-----------------------------------------
 

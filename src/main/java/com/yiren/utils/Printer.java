@@ -141,6 +141,7 @@ public class Printer {
             Pair.class,
             int[].class,
             Triple.class,
+            Object[].class
         };
 
 

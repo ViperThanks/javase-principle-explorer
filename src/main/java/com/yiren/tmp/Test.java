@@ -1,26 +1,16 @@
 package com.yiren.tmp;
 
 import com.yiren.algorithm.datastructure.Pair;
-import com.yiren.algorithm.utils.AlgoUtils;
-import com.yiren.principle.javase.零拷贝技术.ZeroCopyExplorer;
 import com.yiren.utils.MemoryUtil;
-import com.yiren.utils.StopWatch;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.*;
-import java.beans.beancontext.BeanContext;
 import java.io.*;
-import java.lang.reflect.Array;
-import java.lang.reflect.WildcardType;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 
@@ -96,7 +86,7 @@ public class Test {
   @org.junit.jupiter.api.Test
   public void test1() {
     Pair<Integer, Integer> pair = new Pair<>(1, 2);
-    Integer key = pair.getKey();
+    Integer key = pair.getFirst();
     System.out.println(key);
   }
 }
