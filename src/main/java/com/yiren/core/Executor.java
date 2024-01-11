@@ -25,11 +25,11 @@ public class Executor {
   /**
    * 通过字节码对象创建对象,并执行
    *
-   * @param explorerClazzs 探索者类的Class对象
+   * @param explorerClass 探索者类的Class对象
    */
   @SafeVarargs
-  public static void executeExplorer(Class<? extends Explorer>... explorerClazzs) {
-    for (Class<? extends Explorer> explorerClazz : explorerClazzs) {
+  public static void executeExplorer(Class<? extends Explorer>... explorerClass) {
+    for (Class<? extends Explorer> explorerClazz : explorerClass) {
       if (explorerClazz == null) {
         LOGGER.error("explorer is null");
         continue;
