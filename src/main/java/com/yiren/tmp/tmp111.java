@@ -1,12 +1,14 @@
 package com.yiren.tmp;
 
-import cn.hutool.core.util.NumberUtil;
-import com.google.common.primitives.Doubles;
-import com.google.common.primitives.Ints;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.google.common.eventbus.EventBus;
 import com.yiren.core.Executor;
 import com.yiren.core.Explorer;
 import com.yiren.core.expand.BaseTest;
-import org.apache.commons.lang3.math.NumberUtils;
+import com.yiren.entity.User;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * desc:
@@ -20,6 +22,7 @@ public class tmp111 extends BaseTest implements Explorer {
     Executor.executeExplorer(tmp111.class);
   }
 
+  private static final int logicNull = Integer.MIN_VALUE;
   /**
    * 探索 方法
    *
@@ -27,7 +30,10 @@ public class tmp111 extends BaseTest implements Explorer {
    */
   @Override
   public void explore() throws Exception {
-    int j123 = NumberUtils.toInt("j123", 0);
-    println(j123);
+    EventBus eventBus = new EventBus();
+    User[] users = toArray(getTestUser(), getTestUser(), getTestUser());
+    List<User> list = Arrays.asList(getTestUser(), getTestUser(), getTestUser());
+    LOGGER.info(JSON.toJSONString(list, true));
+
   }
 }
