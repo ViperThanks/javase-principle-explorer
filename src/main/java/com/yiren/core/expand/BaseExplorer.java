@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
  * @author weilin
  * @since 2023-12-27
  */
-public abstract class BaseExplorer extends CommonUtils implements Explorer, Testable {
+public abstract class BaseExplorer implements Explorer, Testable {
 
-  public final Logger LOGGER = LoggerFactory.getLogger(getClass());
+  public final Logger log = LoggerFactory.getLogger(getClass().getSimpleName());
 
 }

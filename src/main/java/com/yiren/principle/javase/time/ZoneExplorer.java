@@ -29,10 +29,10 @@ public class ZoneExplorer extends BaseExplorer {
   public void explore() throws Exception {
     //获取系统默认时区
     ZoneId zoneId = ZoneId.systemDefault();
-    LOGGER.info(String.valueOf(zoneId));
+    log.info(String.valueOf(zoneId));
     //获取Java所有的时区
     Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
-    LOGGER.info(JSON.toJSONString(availableZoneIds, SerializerFeature.PrettyFormat));
+    log.info(JSON.toJSONString(availableZoneIds, SerializerFeature.PrettyFormat));
     //封装对象
     ZoneId zoneId1 = ZoneId.of("America/Cuiaba");
     ZonedDateTime now = ZonedDateTime.now(zoneId1);
