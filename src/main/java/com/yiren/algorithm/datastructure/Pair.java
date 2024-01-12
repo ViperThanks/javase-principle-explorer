@@ -11,31 +11,31 @@ import java.util.Objects;
  * @since 30/8/2023
  */
 public class Pair<K, V> {
-    private K key;
-    private V value;
+    private K first;
+    private V second;
 
     public Pair() {
     }
 
-    public Pair(K key, V value) {
-        this.key = key;
-        this.value = value;
+    public Pair(K first, V second) {
+        this.first = first;
+        this.second = second;
     }
 
-    public void setKey(K key) {
-        this.key = key;
+    public void setFirst(K first) {
+        this.first = first;
     }
 
-    public void setValue(V value) {
-        this.value = value;
+    public void setSecond(V second) {
+        this.second = second;
     }
 
-    public K getKey() {
-        return key;
+    public K getFirst() {
+        return first;
     }
 
-    public V getValue() {
-        return value;
+    public V getSecond() {
+        return second;
     }
 
     /**
@@ -45,7 +45,7 @@ public class Pair<K, V> {
      */
     @Override
     public String toString() {
-        return "(" + key + "," + value + ")";
+        return "(" + first + "," + second + ")";
     }
 
     @Override
@@ -53,11 +53,11 @@ public class Pair<K, V> {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Pair<?, ?> pair = (Pair<?, ?>) object;
-        return Objects.equals(key, pair.key) && Objects.equals(value, pair.value);
+        return Objects.equals(first, pair.first) && Objects.equals(second, pair.second);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, value);
+        return Objects.hash(first, second);
     }
 }

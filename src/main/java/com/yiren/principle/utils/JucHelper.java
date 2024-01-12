@@ -37,7 +37,7 @@ public final class JucHelper {
   @SneakyThrows
   public static Unsafe getUnsafe() {
     if (unsafe == null) {
-      synchronized (PrincipleUtil.class) {
+      synchronized (JucHelper.class) {
         if (unsafe == null) {
           Field unsafeField = UNSAFE_CLASS.getDeclaredField(UNSAFE_FIELD_NAME);
           unsafeField.setAccessible(true);

@@ -69,16 +69,16 @@ public final class Performance {
     MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
     MemoryUsage heapBefore = memoryMXBean.getHeapMemoryUsage();
     MemoryUsage nonHeapBefore = memoryMXBean.getNonHeapMemoryUsage();
-    Long start = System.nanoTime();
+    long start = System.nanoTime();
 
     code.run();
 
-    Long end = System.nanoTime();
+    long end = System.nanoTime();
     MemoryUsage heapAfter = memoryMXBean.getHeapMemoryUsage();
     MemoryUsage nonHeapAfter = memoryMXBean.getNonHeapMemoryUsage();
     Performance p = new Performance();
     //注入属性
-    p.timeUsed = end - start;
+    p.timeUsed = end - start - (System.nanoTime() - end);
     p.millisecond = p.timeUsed / 1000000.0;
     p.second = p.timeUsed / 1000000000.0;
     p.heepMemoryBefore = heapBefore.getUsed();

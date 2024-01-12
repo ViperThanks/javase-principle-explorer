@@ -1,6 +1,6 @@
-package com.yiren.手写Redis.ICache.impl;
+package com.yiren.MyRedis.ICache.impl;
 
-import com.yiren.手写Redis.ICache.ICacheEvict;
+import com.yiren.MyRedis.ICache.ICacheEvict;
 
 /**
  * <p>

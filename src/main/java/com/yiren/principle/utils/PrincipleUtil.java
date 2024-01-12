@@ -1,9 +1,9 @@
 package com.yiren.principle.utils;
 
+import com.yiren.entity.PrincipleField;
+import java.lang.reflect.Field;
 import lombok.SneakyThrows;
 import sun.misc.Unsafe;
-
-import java.lang.reflect.Field;
 
 /**
  * <p>
@@ -14,6 +14,7 @@ import java.lang.reflect.Field;
  * @since 16/9/2023
  */
 public final class PrincipleUtil {
+
   private PrincipleUtil() {
   }
 
@@ -23,8 +24,7 @@ public final class PrincipleUtil {
   private static volatile Unsafe unsafe;
 
   /**
-   * 获取unsafe
-   * 基于double check lock的懒汉单例 + 反射
+   * 获取unsafe 基于double check lock的懒汉单例 + 反射
    *
    * @return unsafe
    */
@@ -42,5 +42,20 @@ public final class PrincipleUtil {
     return unsafe;
   }
 
+  /**
+   * 反射获取这个对象的这个字段对象,
+   * @param targetObj 目标对象
+   * @param fieldName 字段名
+   * @return 对象
+   */
+  public static PrincipleField getFiled(Object targetObj, String fieldName) {
+    return new PrincipleField(targetObj, fieldName);
+  }
 
+  @SneakyThrows
+  public static <T> T getStaticFiled(Class<?> clazz, String fieldName) {
+    Field declaredField = clazz.getDeclaredField(fieldName);
+    declaredField.setAccessible(true);
+    return (T) declaredField.get(null);
+  }
 }

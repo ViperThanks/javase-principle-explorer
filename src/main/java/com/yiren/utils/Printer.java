@@ -2,6 +2,7 @@ package com.yiren.utils;
 
 import com.yiren.algorithm.datastructure.ListNode;
 import com.yiren.algorithm.datastructure.Pair;
+import com.yiren.algorithm.datastructure.Triple;
 import com.yiren.algorithm.utils.AlgoUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -12,12 +13,10 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
- * desc  : 打印工具类，底层就是用的System.out.println
- * 重载了多个print方法，可以打印任意类型的数据
- * author: weilin
- * date  : 17/7/2023
+ * desc  : 打印工具类，底层就是用的System.out.println 重载了多个print方法，可以打印任意类型的数据 author: weilin date  : 17/7/2023
  */
 public class Printer {
+
   /**
    * 标准系统输出流
    */
@@ -31,7 +30,7 @@ public class Printer {
    * 分隔符
    */
   private static final String SEPARATOR =
-    "-----------------------this is a separator line power by com.yiren.utils.Printer----------------------";
+      "-----------------------this is a separator line power by com.yiren.utils.Printer----------------------";
 
   /**
    * 默认占位符
@@ -49,8 +48,7 @@ public class Printer {
   }
 
   /**
-   * 使用方式
-   * print(“{} ..... {}”, arg1, arg2, arg3, arg4)
+   * 使用方式 print(“{} ..... {}”, arg1, arg2, arg3, arg4)
    *
    * @param msg  信息带有占位符 {}
    * @param args 参数
@@ -84,8 +82,7 @@ public class Printer {
 
 
   /**
-   * 打印
-   * 时间复杂度 O(n)
+   * 打印 时间复杂度 O(n)
    *
    * @param msg  信息
    * @param args 参数
@@ -116,8 +113,7 @@ public class Printer {
 
 
   /**
-   * 确保参数个数和占位符个数一致
-   * 时间复杂度O(n)
+   * 确保参数个数和占位符个数一致 时间复杂度O(n)
    *
    * @param msg  信息
    * @param args 参数
@@ -127,7 +123,8 @@ public class Printer {
     final int count = StringUtils.countMatches(msg, DEFAULT_PLACEHOLDER);
     if (count != args.length) {
       stdErrStream.println("print方法参数个数不匹配");
-      throw new IllegalArgumentException("参数个数不匹配, " + DEFAULT_PLACEHOLDER + "有" + count + "个, 但是参数有" + args.length + "个");
+      throw new IllegalArgumentException(
+          "参数个数不匹配, " + DEFAULT_PLACEHOLDER + "有" + count + "个, 但是参数有" + args.length + "个");
     }
   }
 
@@ -139,19 +136,21 @@ public class Printer {
      * 已重载打印的类型
      */
     private static final Class<?>[] supportClass =
-      {
-        ListNode.class,
-        Pair.class,
-        int[].class,
-      };
+        {
+            ListNode.class,
+            Pair.class,
+            int[].class,
+            Triple.class,
+            Object[].class
+        };
 
 
     //ensure supportClass is sorted
     // accelerate search
     private static final String[] supportClassStr = Arrays.stream(supportClass)
-      .map(Class::getSimpleName)
-      .sorted()
-      .toArray(String[]::new);
+        .map(Class::getSimpleName)
+        .sorted()
+        .toArray(String[]::new);
 
 
     private static boolean isSupport(@Nonnull Class<?> clazz) {
@@ -179,15 +178,14 @@ public class Printer {
         final Method toString = PrinterHelper.class.getDeclaredMethod("toString0", aClass);
         res = toString.invoke(null, obj);
       } catch (Exception e) {
+        e.printStackTrace();
         stdErrStream.println("反射调用toString方法失败");
       }
       return (String) res;
     }
 
     /**
-     * 将链表转换为字符串
-     * 效果如下:
-     * null -> 1 -> 2 -> 3 -> 4 -> 5 -> null
+     * 将链表转换为字符串 效果如下: null -> 1 -> 2 -> 3 -> 4 -> 5 -> null
      */
     private static String toString0(@Nullable ListNode node) {
       return AlgoUtils.toString(node);
@@ -206,6 +204,8 @@ public class Printer {
     private static String toString0(@Nullable int[] arr) {
       return AlgoUtils.toString(arr);
     }
+
+    private static <T,U,V> String toString0(@Nullable Triple<T,U,V> triple){return AlgoUtils.toString(triple);}
 
   }
 }

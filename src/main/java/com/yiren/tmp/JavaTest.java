@@ -1,9 +1,29 @@
 package com.yiren.tmp;
 
+import static com.yiren.algorithm.utils.Python.range;
+
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.yiren.algorithm.array.ArraySortAlgorithmTemplate;
+import com.yiren.algorithm.array.QuickSort;
+import com.yiren.algorithm.datastructure.Pair;
 import com.yiren.algorithm.utils.AlgoUtils;
-import com.yiren.principle.javase.零拷贝技术.ZeroCopyExplorer;
-import com.yiren.utils.Performance;
+import com.yiren.core.Executor;
+import com.yiren.core.ExplorerTestable;
+import com.yiren.entity.Employee;
+import com.yiren.entity.User;
+import com.yiren.utils.StopWatch;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import lombok.Data;
+import lombok.experimental.Accessors;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,40 +35,50 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * desc  :
- * author: weilin
- * date  : 17/7/2023
+ * desc  : author: weilin date  : 17/7/2023
  */
-public class JavaTest {
+public class JavaTest implements ExplorerTestable {
 
-  private static final Logger log = LoggerFactory.getLogger(JavaTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(JavaTest.class);
 
 
   public static void main(String[] args) {
-    ZeroCopyExplorer explorer = new ZeroCopyExplorer();
-    Runnable zeroCopy = () -> {
-      try {
-        explorer.zeroCopy();
-      } catch (Exception e) {
-        throw new RuntimeException(e);
-      }
-    };
-    Runnable normalCopy = () -> {
-      try {
-        explorer.normalCopy();
-      } catch (Exception e) {
-        throw new RuntimeException(e);
-      }
-    };
-    Performance.run(zeroCopy).toDetailPrintable();
-    Performance.run(normalCopy).toDetailPrintable();
+    Executor.executeExplorer(JavaTest.class);
+  }
+
+  /**
+   * 探索 方法
+   *
+   * @throws Exception
+   */
+  @Override
+  public void explore() throws Exception {
+
+    Map<Integer, Integer> map = ImmutableMap.of();
+
+  }
+
+
+
+
+  @Data
+  @Accessors(chain = true)
+  private static final class EasyVo {
+
+    Employee employee;
+    List<User> userList;
   }
 
   @Test
   public void test() {
-    List<Integer> list = Lists.newArrayList(1, 2, 3, 4, 5);
-    list.remove(Integer.valueOf(1));
-    log.info("list:{}", list);
+    ArraySortAlgorithmTemplate template = new QuickSort();
+    int[] a = AlgoUtils.randomIntArr(100_000_000);
+    int[] b = a.clone();
+    System.out.println(a == b);
+    System.out.println((StopWatch.calculateMilliseconds(() -> template.sort(b, 0, b.length - 1))));
+    System.out.println(ArrayUtils.isSorted(b));
+    System.out.println(StopWatch.calculateMilliseconds(() -> Arrays.sort(b)));
+    System.out.println(ArrayUtils.isSorted(b));
   }
 
   String toBin(double num) {
@@ -82,11 +112,35 @@ public class JavaTest {
 
   @Test
   public void test2() throws IOException {
-    BufferedReader reader = AlgoUtils.getBufferedReader();
-    Integer[] split = AlgoUtils.split(reader.readLine(), Integer::parseInt);
-    log.info(Arrays.toString(split));
+    HashMap<@Nullable String, @Nullable User> map = Maps.newHashMap();
+    map.computeIfAbsent("1", this::getById);
   }
 
+  public User getById(String id) {
+    return getById(NumberUtils.isParsable(id) ? Long.valueOf(id) : -1L);
+  }
+
+  public User getById(long id) {
+    return new User().setId(id);
+  }
+
+  @Test
+  public void teszt11() {
+    List<Pair<String, Function<String, String>>> list = Lists.newArrayList(new Pair<>("java", s -> s + 1),
+        new Pair<>("guava", s -> s + 2));
+    StringBuilder sb = new StringBuilder();
+    for (Pair<String, Function<String, String>> pair : list) {
+      sb.append(pair.getFirst()).append(':').append(pair.getSecond().apply(pair.getFirst()));
+    }
+    System.out.println("sb = " + sb);
+  }
+
+
+  private String test(String srcRealName) {
+    return Optional.ofNullable(srcRealName)
+        .filter(StringUtils::isNotBlank)
+        .orElse("全部");
+  }
 
 }
 

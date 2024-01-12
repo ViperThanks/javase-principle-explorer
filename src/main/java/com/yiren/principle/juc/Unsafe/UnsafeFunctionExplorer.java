@@ -2,9 +2,7 @@ package com.yiren.principle.juc.Unsafe;
 
 import com.yiren.core.Executor;
 import com.yiren.core.Explorer;
-import com.yiren.entity.User;
 import com.yiren.principle.utils.PrincipleUtil;
-import javafx.util.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sun.misc.Unsafe;
