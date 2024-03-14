@@ -1,5 +1,6 @@
 package com.yiren.tmp;
 
+import com.google.common.collect.ImmutableMap;
 import com.yiren.algorithm.datastructure.Pair;
 import com.yiren.utils.MemoryUtil;
 import java.util.Iterator;
@@ -29,7 +30,7 @@ public class Test {
 
   public static void main(String[] args) throws Exception {
     //map的迭代方式
-    Map<String, String> alphaNumMap = Map.of("a", "1", "b", "2", "c", "3");
+    Map<String, String> alphaNumMap = ImmutableMap.of("a", "1", "b", "2", "c", "3");
     //基于key set的
     //1. 增强for循环
     for (String alpha : alphaNumMap.keySet()) {}

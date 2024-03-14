@@ -5,13 +5,14 @@ package com.yiren.core;
  * desc    : 执行者类，封装了一些执行方法
  * 用反射去实现的，就是不想每次都去new一个对象
  */
-public class Executor {
+public final class Executor {
 
   private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger("Explorer Core Executor");
 
   private static final String BEGIN_SIGN = "------------>";
   private static final String END_SIGN = "<------------";
 
+  @Deprecated
   public static void executeExplorer(Explorer explorer) {
     try {
       LOGGER.info("{} execute explorerClass: {} {}\n", BEGIN_SIGN, explorer.getClass().getSimpleName(), END_SIGN);
@@ -57,6 +58,34 @@ public class Executor {
       }
       LOGGER.info("{} execute explorerClass: [{}] main thread end because {} {}", BEGIN_SIGN, clazzName,
           success ? "execution completed" : "upper exception", END_SIGN);
+    }
+  }
+
+
+  /**
+   * 基于反射获取运行时class然后再反射调用
+   */
+  @SuppressWarnings("unchecked")
+  public static void executeMyself() {
+    try {
+      // 获取当前线程的栈跟踪元素
+      StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+
+      // stackTraceElements[2] 是调用 doMyself 的方法
+      StackTraceElement caller = stackTraceElements[2];
+      String className = caller.getClassName();
+
+      // 加载类并创建实例
+      Class<?> clazz = Class.forName(className);
+
+      // 检查是否存在 explore 方法并调用
+      if (Explorer.class.isAssignableFrom(clazz)) {
+        executeExplorer((Class<? extends Explorer>) clazz);
+      }else {
+        throw new IllegalStateException("illegal class because no implement Explorer");
+      }
+    } catch (Exception e) {
+      LOGGER.error("Error in doMyself method", e);
     }
   }
 

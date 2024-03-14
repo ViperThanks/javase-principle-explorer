@@ -1,23 +1,18 @@
 package com.yiren.utils;
 
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintStream;
+import sun.misc.Unsafe;
+
+import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.security.SecureRandom;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
-import sun.misc.Unsafe;
 
 
 /**
@@ -240,9 +235,10 @@ public abstract class CommonUtils {
 
   /**
    * 数组元素的交换
+   *
    * @param array 目标数组
-   * @param i 索引i
-   * @param j 索引j
+   * @param i     索引i
+   * @param j     索引j
    */
   public static void swap(Object array, int i, int j) {
     requiredStatus(array != null && array.getClass().isArray(), "array参数不是数组");
@@ -277,21 +273,21 @@ public abstract class CommonUtils {
      * 字母表
      */
     private static final char[] Alphabet = {
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
     };
 
     /**
      * 字母+数字表
      */
     private static final char[] AlphabetPlusDigital = {
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+            'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
     };
 
     private static String generateString(int size) {
@@ -405,7 +401,7 @@ public abstract class CommonUtils {
               unsafeField.setAccessible(true);
               unsafe = (Unsafe) unsafeField.get(null);
             } catch (NoSuchFieldException | IllegalAccessException e) {
-              throw new RuntimeException("反射获取失败，原因是JDK8之后反射麻烦了",e);
+              throw new RuntimeException("反射获取失败，原因是JDK8之后反射麻烦了", e);
             }
           }
         }
@@ -552,27 +548,28 @@ public abstract class CommonUtils {
     private static final PrintStream DEFAULT_ERR_STREAM = System.err;
   }
 
-  private static final class PrinterHelper{
+  private static final class PrinterHelper {
 
     /**
      * 已重载打印的类型
      */
     private static final Class<?>[] supportClass =
-        {
+            {
 
-        };
+            };
 
 
     //ensure supportClass is sorted
     // accelerate search
     private static final String[] supportClassStr = Arrays.stream(supportClass)
-        .map(Class::getSimpleName)
-        .sorted()
-        .toArray(String[]::new);
+            .map(Class::getSimpleName)
+            .sorted()
+            .toArray(String[]::new);
 
     private static boolean isSupport(Class<?> clazz) {
       return Arrays.binarySearch(supportClassStr, clazz.getSimpleName()) >= 0;
     }
+
     /**
      * 将对象转换为字符串
      *
@@ -598,55 +595,61 @@ public abstract class CommonUtils {
 
   private static final class Printer {
 
+    private static String toString(Object object){
+      final Class<?> clazz = object.getClass();
+      if (object.getClass().isArray()) {
+        if (object instanceof int[]) {
+          return Arrays.toString((int[]) object);
+        } else if (object instanceof double[]) {
+          return Arrays.toString((double[]) object);
+        } else if (object instanceof char[]) {
+          return Arrays.toString((char[]) object);
+        } else if (object instanceof byte[]) {
+          return Arrays.toString((byte[]) object);
+        } else if (object instanceof short[]) {
+          return Arrays.toString((short[]) object);
+        } else if (object instanceof long[]) {
+          return Arrays.toString((long[]) object);
+        } else if (object instanceof float[]) {
+          return Arrays.toString((float[]) object);
+        } else if (object instanceof boolean[]) {
+          return Arrays.toString((boolean[]) object);
+        } else {
+          return Arrays.toString((Object[]) object);
+        }
+      } else if (object instanceof CharSequence) {
+        return object.toString();
+      } else if (PrinterHelper.isSupport(clazz)) {
+        return PrinterHelper.toString(object);
+      } else {
+        return String.valueOf(object);
+      }
+    }
+
     private static void print(Object object, String end) {
       if (object == null || end == null) {
         return;
       }
-      final Class<?> clazz = object.getClass();
-      String line;
-      if (clazz.isArray()) {
-        if (object instanceof int[]) {
-          line = Arrays.toString((int[]) object);
-        } else if (object instanceof double[]) {
-          line = Arrays.toString((double[]) object);
-        } else if (object instanceof char[]) {
-          line = Arrays.toString((char[]) object);
-        } else if (object instanceof byte[]) {
-          line = Arrays.toString((byte[]) object);
-        } else if (object instanceof short[]) {
-          line = Arrays.toString((short[]) object);
-        } else if (object instanceof long[]) {
-          line = Arrays.toString((long[]) object);
-        } else if (object instanceof float[]) {
-          line = Arrays.toString((float[]) object);
-        } else if (object instanceof boolean[]) {
-          line = Arrays.toString((boolean[]) object);
-        } else {
-          line = Arrays.toString((Object[]) object);
-        }
-      } else if (object instanceof String) {
-        line = (String) object;
-      } else if (PrinterHelper.isSupport(clazz)) {
-        line = PrinterHelper.toString(object);
-      } else {
-        line = String.valueOf(object);
-      }
+      String line = toString(object);
       PrinterStream.DEFAULT_OUT_STREAM.print(line);
       PrinterStream.DEFAULT_OUT_STREAM.print(end);
     }
+  }
+
+  public static String toString(Object o) {
+    return Printer.toString(o);
   }
 
   /**
    * 动态生成字符串
    */
   public static void println(Object o) {
-    Printer.print(o,"\n");
+    Printer.print(o, "\n");
   }
 
   public static void print(Object o) {
-    Printer.print(o,"");
+    Printer.print(o, "");
   }
-
 
 
 //-------------------------------------------输出工具类-----------------------------------------
@@ -759,7 +762,7 @@ public abstract class CommonUtils {
   public static void requiredIndex(int maxLength, int index, String name) {
     if (!(index >= 0 && index < maxLength)) {
       throw new ArrayIndexOutOfBoundsException(
-          name + " is out of bound because " + index + " not between 0 and " + maxLength);
+              name + " is out of bound because " + index + " not between 0 and " + maxLength);
     }
   }
 
@@ -800,4 +803,70 @@ public abstract class CommonUtils {
     }
   }
 //-------------------------------------------检查方法-----------------------------------------
+//-------------------------------------------对象常用方法-----------------------------------------
+  private static final class ObjectUtils{
+
+    private static boolean isEmpty(final Object object) {
+      if (object == null) {
+        return true;
+      }
+      if (object instanceof CharSequence) {
+        return ((CharSequence) object).length() == 0;
+      }
+      if (object.getClass().isArray()) {
+        return Array.getLength(object) == 0;
+      }
+      if (object instanceof Collection<?>) {
+        return ((Collection<?>) object).isEmpty();
+      }
+      if (object instanceof Map<?, ?>) {
+        return ((Map<?, ?>) object).isEmpty();
+      }
+      return false;
+    }
+
+    private static boolean isNull(final Object object) {
+        return object == null;
+    }
+
+    private static <T> T defaultIfEmpty(final T object, final T defaultValue) {
+      return defaultIf(ObjectUtils::isEmpty, object, defaultValue);
+    }
+
+    private static <T> T defaultIfNull(final T object, final T defaultValue) {
+      return defaultIf(ObjectUtils::isNull, object, defaultValue);
+    }
+
+    private static <T> T defaultIf(final Predicate<T> predicate, final T object, final T defaultValue) {
+      return defaultIf(predicate.test(object), object, defaultValue);
+    }
+
+    private static <T> T defaultIf(final boolean needDefault, final T object, final T defaultValue) {
+      return needDefault ? defaultValue : object;
+    }
+  }
+
+  public static boolean isEmpty(final Object object) {
+    return ObjectUtils.isEmpty(object);
+  }
+
+  public static boolean isNull(final Object object) {
+    return ObjectUtils.isNull(object);
+  }
+
+  public static <T> T defaultIfEmpty(final T object, final T defaultValue) {
+    return ObjectUtils.defaultIfEmpty(object, defaultValue);
+  }
+
+  public static <T> T defaultIfNull(final T object, final T defaultValue) {
+    return ObjectUtils.defaultIfNull(object, defaultValue);
+  }
+
+  public static <T> T defaultIf(final Predicate<T> isNullPredicate, final T object, final T defaultValue) {
+    return ObjectUtils.defaultIf(isNullPredicate, object, defaultValue);
+  }
+
+  public static <T> T defaultIf(final boolean needDefault, final T object, final T defaultValue) {
+    return ObjectUtils.defaultIf(needDefault, object, defaultValue);
+  }
 }

@@ -98,7 +98,7 @@ public class test1 extends BaseExplorer {
     System.out.println(objects);
     */
     List<String> list = Stream.generate(RandomHolder.THREAD_LOCAL_RANDOM::nextLong).limit(100)
-        .flatMap(num -> Splitter.on(',').splitToStream(num.toString())).toList();
+        .flatMap(num -> Splitter.on(',').splitToStream(num.toString())).collect(Collectors.toList());
     ArrayUtils.reverse(emoji);
     System.out.println(Arrays.toString(emoji));
 
