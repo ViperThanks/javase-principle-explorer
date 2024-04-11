@@ -44,9 +44,6 @@ public final class Executor {
         LOGGER.error("{} execute explorerClass: [{}] error {}", BEGIN_SIGN, clazzName, END_SIGN);
         LOGGER.error("ensure that the explorerClass has a no-args constructor");
         LOGGER.error("ensure that the explorerClass constructor is public");
-      }
-      if (explorer == null) {
-        LOGGER.error("explorer is null, skip this explorerClass: [{}] ", clazzName);
         continue;
       }
       boolean success = true;
