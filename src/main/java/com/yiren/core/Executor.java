@@ -40,7 +40,7 @@ public final class Executor {
       Explorer explorer = null;
       try {
         explorer = explorerClazz.getConstructor().newInstance();
-      } catch (Exception e) {
+      } catch (Throwable e) {
         LOGGER.error("{} execute explorerClass: [{}] error {}", BEGIN_SIGN, clazzName, END_SIGN);
         LOGGER.error("ensure that the explorerClass has a no-args constructor");
         LOGGER.error("ensure that the explorerClass constructor is public");
@@ -49,7 +49,7 @@ public final class Executor {
       boolean success = true;
       try {
         explorer.explore();
-      } catch (Exception e) {
+      } catch (Throwable e) {
         LOGGER.error("catch inner exception", e);
         success = false;
       }
