@@ -1,7 +1,7 @@
 package com.yiren.core.expand;
 
 /**
- * desc:
+ * desc: 对输出的接口进行简写
  *
  * @author Viper Thanks
  * @since 5/6/2024
