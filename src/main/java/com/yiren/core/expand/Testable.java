@@ -1,10 +1,11 @@
-package com.yiren.core;
+package com.yiren.core.expand;
+
+import com.yiren.entity.User;
+
+import java.time.LocalDateTime;
 
 import static com.yiren.utils.CommonUtils.getRandomLong;
 import static com.yiren.utils.CommonUtils.getRandomString;
-
-import com.yiren.entity.User;
-import java.time.LocalDateTime;
 
 /**
  * desc: 有测试数据
@@ -32,14 +33,7 @@ public interface Testable {
       .setUpdateTime(LocalDateTime.now());
 
   default User getTestUser() {
-    return new User()
-        .setId(getRandomLong(1000))
-        .setPhone(getRandomString(11))
-        .setPassword(getRandomString(15, true))
-        .setNickName(getRandomString(5))
-        .setIcon(getRandomString(5))
-        .setCreateTime(LocalDateTime.now())
-        .setUpdateTime(LocalDateTime.now());
+    return getUser();
   }
 
   static User getUser(){

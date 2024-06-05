@@ -1,6 +1,5 @@
 package com.yiren.core.expand;
 
-import com.yiren.core.Testable;
 import com.yiren.utils.CommonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
