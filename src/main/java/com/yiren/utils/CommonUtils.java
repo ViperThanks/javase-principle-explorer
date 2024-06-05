@@ -1,6 +1,7 @@
 package com.yiren.utils;
 
 
+import com.yiren.entity.PrincipleField;
 import sun.misc.Unsafe;
 
 import java.io.*;
@@ -8,7 +9,12 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.security.SecureRandom;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
@@ -48,11 +54,11 @@ public abstract class CommonUtils {
     return RandomHolder.THREAD_LOCAL_RANDOM.nextInt(to);
   }
 
-  public static long getRandomLong(int from, int to) {
+  public static long getRandomLong(long from, long to) {
     return RandomHolder.THREAD_LOCAL_RANDOM.nextLong(from, to);
   }
 
-  public static long getRandomLong(int to) {
+  public static long getRandomLong(long to) {
     return RandomHolder.THREAD_LOCAL_RANDOM.nextLong(to);
   }
 
@@ -555,9 +561,12 @@ public abstract class CommonUtils {
      */
     private static final Class<?>[] supportClass =
             {
-
+                PrincipleField.class
             };
 
+    private static String toString0(PrincipleField<?> principleField){
+      return "PrincipleField -> " + Printer.toString(principleField.getSnapshot());
+    }
 
     //ensure supportClass is sorted
     // accelerate search
@@ -596,8 +605,11 @@ public abstract class CommonUtils {
   private static final class Printer {
 
     private static String toString(Object object){
+      if (null == object) {
+        return "null";
+      }
       final Class<?> clazz = object.getClass();
-      if (object.getClass().isArray()) {
+      if (clazz.isArray()) {
         if (object instanceof int[]) {
           return Arrays.toString((int[]) object);
         } else if (object instanceof double[]) {
@@ -627,9 +639,7 @@ public abstract class CommonUtils {
     }
 
     private static void print(Object object, String end) {
-      if (object == null || end == null) {
-        return;
-      }
+      requiredStatus(end != null);
       String line = toString(object);
       PrinterStream.DEFAULT_OUT_STREAM.print(line);
       PrinterStream.DEFAULT_OUT_STREAM.print(end);
@@ -838,6 +848,7 @@ public abstract class CommonUtils {
     }
 
     private static <T> T defaultIf(final Predicate<T> predicate, final T object, final T defaultValue) {
+      requiredStatus(predicate != null,"predicate must non null!");
       return defaultIf(predicate.test(object), object, defaultValue);
     }
 
@@ -862,11 +873,25 @@ public abstract class CommonUtils {
     return ObjectUtils.defaultIfNull(object, defaultValue);
   }
 
-  public static <T> T defaultIf(final Predicate<T> isNullPredicate, final T object, final T defaultValue) {
-    return ObjectUtils.defaultIf(isNullPredicate, object, defaultValue);
+  public static <T> T defaultIf(final Predicate<T> needDefaultPredicate, final T object, final T defaultValue) {
+    return ObjectUtils.defaultIf(needDefaultPredicate, object, defaultValue);
   }
 
   public static <T> T defaultIf(final boolean needDefault, final T object, final T defaultValue) {
     return ObjectUtils.defaultIf(needDefault, object, defaultValue);
   }
+//-------------------------------------------循环工具类-----------------------------------------
+
+  private static final class Looper {
+    private static final ExecutorService THREAD_POOL_EXECUTOR = Executors.newFixedThreadPool(5);
+    private static void loop(int times, Runnable task) {
+      for (int i = 0; i < times; i++) task.run();
+    }
+  }
+  public static void loop(int times, Runnable task) {
+    Looper.loop(times, task);
+  }
+
+
+//-------------------------------------------循环工具类-----------------------------------------
 }

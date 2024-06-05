@@ -1,6 +1,8 @@
 package com.yiren.utils;
 
 
+import com.google.common.primitives.Ints;
+
 import java.text.DecimalFormat;
 
 /**
@@ -47,8 +49,7 @@ public class MemoryUtil {
    */
   public static byte[] getBytes(int size, Memory memory) {
     Required.requiredNonnegative(size, "size");
-    int len = (int) Math.min(Integer.MAX_VALUE, size * memory.toB());
-    return new byte[len];
+    return new byte[Ints.saturatedCast(size * memory.toB())];
   }
 
 

@@ -16,7 +16,7 @@ import java.lang.management.MemoryUsage;
  *
  * 太多问题了,不要用了，时间好像会显示得比较慢
  */
-
+@Deprecated
 public final class Performance {
 
   /**
