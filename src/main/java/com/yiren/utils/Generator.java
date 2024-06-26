@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  */
 public class Generator<T> {
     private final Supplier<? extends T> generator;
-    private final Predicate<? super T> predicate;
+    private Predicate<? super T> predicate;
 
     private Generator() {
         throw new RuntimeException("no-arg construct is illegal");
@@ -24,6 +24,11 @@ public class Generator<T> {
     private Generator(Supplier<? extends T> generator, Predicate<? super T> predicate) {
         this.generator = generator;
         this.predicate = predicate;
+    }
+
+    public Generator<T> clearPredicate(){
+        this.predicate = t -> true;
+        return this;
     }
 
     /**

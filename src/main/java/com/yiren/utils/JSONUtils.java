@@ -24,9 +24,9 @@ import java.util.List;
  * 缺点：JSON确实好用
  * @author Viper Thanks
  */
-public class Json {
+public class JSONUtils {
 
-    private static final Logger log = LoggerFactory.getLogger(Json.class);
+    private static final Logger log = LoggerFactory.getLogger(JSONUtils.class);
 
 
     private static final ObjectMapper objectMapper = new ObjectMapper();

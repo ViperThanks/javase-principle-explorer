@@ -839,21 +839,21 @@ public abstract class CommonUtils {
         return object == null;
     }
 
-    private static <T> T defaultIfEmpty(final T object, final T defaultValue) {
-      return defaultIf(ObjectUtils::isEmpty, object, defaultValue);
+    private static <T> T defaultIfEmpty(final T object, final Supplier<T> defaultValueSupplier) {
+      return defaultIf(ObjectUtils::isEmpty, object, defaultValueSupplier);
     }
 
-    private static <T> T defaultIfNull(final T object, final T defaultValue) {
-      return defaultIf(ObjectUtils::isNull, object, defaultValue);
+    private static <T> T defaultIfNull(final T object, final Supplier<T> defaultValueSupplier) {
+      return defaultIf(ObjectUtils::isNull, object,defaultValueSupplier);
     }
 
-    private static <T> T defaultIf(final Predicate<T> predicate, final T object, final T defaultValue) {
+    private static <T> T defaultIf(final Predicate<T> predicate, final T object, final Supplier<T> defaultValueSupplier) {
       requiredStatus(predicate != null,"predicate must non null!");
-      return defaultIf(predicate.test(object), object, defaultValue);
+      return defaultIf(predicate.test(object), object, defaultValueSupplier);
     }
 
-    private static <T> T defaultIf(final boolean needDefault, final T object, final T defaultValue) {
-      return needDefault ? defaultValue : object;
+    private static <T> T defaultIf(final boolean needDefault, final T object, final Supplier<T> defaultValueSupplier) {
+      return needDefault ? defaultValueSupplier.get() : object;
     }
   }
 
@@ -865,20 +865,20 @@ public abstract class CommonUtils {
     return ObjectUtils.isNull(object);
   }
 
-  public static <T> T defaultIfEmpty(final T object, final T defaultValue) {
-    return ObjectUtils.defaultIfEmpty(object, defaultValue);
+  public static <T> T defaultIfEmpty(final T object, final Supplier<T> defaultValueSupplier) {
+    return ObjectUtils.defaultIfEmpty(object, defaultValueSupplier);
   }
 
-  public static <T> T defaultIfNull(final T object, final T defaultValue) {
-    return ObjectUtils.defaultIfNull(object, defaultValue);
+  public static <T> T defaultIfNull(final T object, final Supplier<T> defaultValueSupplier) {
+    return ObjectUtils.defaultIfNull(object, defaultValueSupplier);
   }
 
-  public static <T> T defaultIf(final Predicate<T> needDefaultPredicate, final T object, final T defaultValue) {
-    return ObjectUtils.defaultIf(needDefaultPredicate, object, defaultValue);
+  public static <T> T defaultIf(final Predicate<T> needDefaultPredicate, final T object, final Supplier<T> defaultValueSupplier) {
+    return ObjectUtils.defaultIf(needDefaultPredicate, object, defaultValueSupplier);
   }
 
-  public static <T> T defaultIf(final boolean needDefault, final T object, final T defaultValue) {
-    return ObjectUtils.defaultIf(needDefault, object, defaultValue);
+  public static <T> T defaultIf(final boolean needDefault, final T object, final Supplier<T> defaultValueSupplier) {
+    return ObjectUtils.defaultIf(needDefault, object, defaultValueSupplier);
   }
 //-------------------------------------------循环工具类-----------------------------------------
 
