@@ -70,6 +70,11 @@ public class PrincipleField<T> {
         }
     }
 
+    public PrincipleField<T> withInit() {
+        flush();
+        return this;
+    }
+
     /**
      * 获取最新的反射对象
      */
