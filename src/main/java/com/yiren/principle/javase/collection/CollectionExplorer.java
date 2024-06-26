@@ -3,11 +3,8 @@ package com.yiren.principle.javase.collection;
 import com.google.common.collect.Lists;
 import com.yiren.core.Executor;
 import com.yiren.core.expand.BaseExplorer;
-import com.yiren.utils.CommonUtils;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.ArrayList;
 
 /**
  * desc:
@@ -28,13 +25,23 @@ public class CollectionExplorer extends BaseExplorer {
      */
     @Override
     public void explore() throws Exception {
-        Collection<Integer> collection = Lists.newArrayList(CommonUtils.getRandomArr(10, ThreadLocalRandom.current()::nextInt));
-        //开始操作
-        collection.add(1);
-        print(collection);
-        collection.addAll(Collections.emptyList());
-        boolean equals = collection.equals(Collections.emptyList());
-        printWithSeparator(equals);
-
+//        Collection<Integer> collection = Lists.newArrayList(CommonUtils.getRandomArr(10, ThreadLocalRandom.current()::nextInt));
+//        //开始操作
+//        collection.add(1);
+//        print(collection);
+//        collection.addAll(Collections.emptyList());
+//        boolean equals = collection.equals(Collections.emptyList());
+//
+//        printWithSeparator(equals);
+//
+//        Collection<Integer> collection1 = new LinkedList<>();
+//        ArrayList<Integer> integers = Lists.newArrayList(CommonUtils.getRandomArr(10, ThreadLocalRandom.current()::nextInt));
+//        integers.trimToSize();
+        ArrayList<Integer> integers =
+                Lists.newArrayList(1, 23, 2, 4, 5, 5, 2, 5, 6);
+        ArrayList<Integer> integers1 = (ArrayList<Integer>) integers.clone();
+        integers.set(1, 2);
+        log.info(String.valueOf(integers));
+        log.info(String.valueOf(integers1));
     }
 }

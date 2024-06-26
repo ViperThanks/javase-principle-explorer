@@ -1,9 +1,11 @@
 package com.yiren.principle.utils;
 
+import com.alibaba.fastjson.TypeReference;
 import com.yiren.entity.PrincipleField;
-import java.lang.reflect.Field;
 import lombok.SneakyThrows;
 import sun.misc.Unsafe;
+
+import java.lang.reflect.Field;
 
 /**
  * <p>
@@ -48,14 +50,37 @@ public final class PrincipleUtil {
    * @param fieldName 字段名
    * @return 对象
    */
-  public static PrincipleField getFiled(Object targetObj, String fieldName) {
-    return new PrincipleField(targetObj, fieldName);
+  public static <T> PrincipleField<T> getFiled(Object targetObj, String fieldName,Class<T> tClass) {
+    return new PrincipleField<>(targetObj, fieldName, tClass);
+  }
+
+  /**
+   * 反射获取这个对象的这个字段对象,
+   * @param targetObj 目标对象
+   * @param fieldName 字段名
+   * @return 对象
+   */
+  public static <T> PrincipleField<T> getFiled(Object targetObj, String fieldName, TypeReference<T> typeReference) {
+    return new PrincipleField<>(targetObj, fieldName, typeReference);
+  }
+
+  /**
+   * 反射获取这个对象的这个字段对象,
+   * @param targetObj 目标对象
+   * @param fieldName 字段名
+   * @return 对象
+   */
+  public static PrincipleField<?> getFiled(Object targetObj, String fieldName) {
+    return new PrincipleField<>(targetObj.getClass(), targetObj, fieldName);
   }
 
   @SneakyThrows
-  public static <T> T getStaticFiled(Class<?> clazz, String fieldName) {
-    Field declaredField = clazz.getDeclaredField(fieldName);
-    declaredField.setAccessible(true);
-    return (T) declaredField.get(null);
+  public static <T> PrincipleField<T> getStaticFiled(Class<?> clazz, String fieldName,Class<T> tClass) {
+    return new PrincipleField<>(clazz, fieldName,tClass);
+  }
+
+  @SneakyThrows
+  public static <T> PrincipleField<T> getStaticFiled(Class<?> clazz, String fieldName,TypeReference<T> typeReference) {
+    return new PrincipleField<>(clazz, fieldName, typeReference);
   }
 }

@@ -2,9 +2,7 @@ package com.yiren.principle.javase.object;
 
 
 import com.yiren.core.Executor;
-import com.yiren.core.Explorer;
-import com.yiren.core.ExplorerTestable;
-import com.yiren.test_data.TestData;
+import com.yiren.core.expand.ExplorerTestable;
 import lombok.extern.slf4j.Slf4j;
 import org.openjdk.jol.info.ClassLayout;
 

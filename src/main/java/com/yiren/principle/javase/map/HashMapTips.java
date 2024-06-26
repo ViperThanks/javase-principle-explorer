@@ -5,10 +5,10 @@ import com.yiren.core.Executor;
 import com.yiren.core.expand.BaseExplorer;
 import com.yiren.entity.PrincipleField;
 import com.yiren.principle.utils.PrincipleUtil;
-import com.yiren.utils.CommonUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * desc:
@@ -32,18 +32,15 @@ public class HashMapTips extends BaseExplorer {
     }
 
     private void map1() {
-        Map<Integer,Integer> map = new HashMap<>(2);
-        PrincipleField filed = PrincipleUtil.getFiled(map, "table");
-        log.info(String.valueOf(ArrayUtils.getLength(filed.get())));
-        map.put(1, 1);
-        log.info(String.valueOf(ArrayUtils.getLength(filed.get())));
-        map.put(2, 2);
-        log.info(String.valueOf(ArrayUtils.getLength(filed.get())));
+        ArrayList<Object> list = new ArrayList<>();
+        list.add(1);
+        PrincipleField<Object[]> elementData = PrincipleUtil.getFiled(list, "elementData",Object[].class);
+        log.info(elementData.toString());
     }
 
     private void map2(){
         Map<Integer,Integer> map = Maps.newHashMapWithExpectedSize(2);
-        PrincipleField filed = PrincipleUtil.getFiled(map, "table");
+        PrincipleField<?> filed = PrincipleUtil.getFiled(map, "table");
         log.info(String.valueOf(ArrayUtils.getLength(filed.get())));
         map.put(1, 1);
         log.info(String.valueOf(ArrayUtils.getLength(filed.get())));
