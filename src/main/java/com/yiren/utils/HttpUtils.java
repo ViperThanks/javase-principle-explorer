@@ -1,6 +1,5 @@
 package com.yiren.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -23,16 +22,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
- * desc:
+ * desc: http 工具类
  *
  * @author Viper Thanks
  * @since 25/6/2024
  */
-public class HttpUtils {
-
+public final class HttpUtils {
+    private HttpUtils(){}
 
     private static final Logger LOG = LoggerFactory.getLogger(HttpUtils.class);
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     /**
      * http连接池实现
@@ -71,6 +69,7 @@ public class HttpUtils {
         try {
             return doPost(new URI(uri), body);
         } catch (URISyntaxException e) {
+            LOG.error("url 格式错误，请检查格式。");
             throw new RuntimeException(e);
         }
     }

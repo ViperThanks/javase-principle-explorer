@@ -8,14 +8,22 @@ package com.yiren.core.expand;
  */
 public interface EasyPrintable extends Printable {
 
+    /**
+     * 动态输出对象
+     */
     default void p(Object o) {
         print(o);
     }
 
+    /**
+     * 动态输出对象，在上一行和下一行加入分隔符{@value SEPARATOR}
+     */
     default void pws(Object o){
-        printWithSeparator(o);
+        pws(o, "");
     }
-
+    /**
+     * 动态输出对象，在上一行和下一行加入分隔符{@value SEPARATOR}，sign为占位符的字符串
+     */
     default void pws(Object o, String sign) {
         printWithSeparator(o, sign);
     }
