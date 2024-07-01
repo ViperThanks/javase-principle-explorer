@@ -1,5 +1,6 @@
 package com.yiren.utils;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.http.HttpException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -109,7 +110,7 @@ public final class HttpUtils {
         try (CloseableHttpResponse response = getHttpClient().execute(httpGet)) {
             return EntityUtils.toString(response.getEntity());
         } catch (IOException e) {
-            LOG.error("get url :: {} error", url, e);
+            LOG.error("get请求失败 url :: {} {}", url, ExceptionUtils.getStackTrace(e));
             return null;
         }
     }
