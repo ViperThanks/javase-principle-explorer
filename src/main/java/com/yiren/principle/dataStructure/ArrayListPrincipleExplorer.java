@@ -31,8 +31,8 @@ public class ArrayListPrincipleExplorer extends BaseExplorer {
         pws(strings);
         strings.add(1, "test");
         pws(strings);
-        PrincipleField<Object[]> elementDataPrinciple = PrincipleUtil.getFiled(strings, "elementData", new TypeReference<Object[]>() {}).withInit();
-        Object[] elementData = elementDataPrinciple.getSnapshot();
+        PrincipleField<Object[]> elementDataPrinciple = PrincipleUtil.getFiled(strings, "elementData", new TypeReference<Object[]>() {});
+        Object[] elementData = elementDataPrinciple.get();
         elementData[7] = new User();
         pws(elementData);
         pws(strings.get(7));

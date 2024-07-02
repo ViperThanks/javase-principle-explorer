@@ -1,7 +1,7 @@
 package com.yiren.principle.juc.不可变类型;
 
 import com.yiren.core.Executor;
-import com.yiren.core.Explorer;
+import com.yiren.core.expand.BaseExplorer;
 import com.yiren.principle.utils.JucHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
  * @author weilin
  * @since 19/9/2023
  */
-public class ImmutableTypesExplorer implements Explorer {
+public class ImmutableTypesExplorer extends BaseExplorer {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ImmutableTypesExplorer.class);
 
@@ -29,7 +29,7 @@ public class ImmutableTypesExplorer implements Explorer {
   @Override
   public void explore() throws Exception {
     dateTime();
-    LOGGER.debug("==================================");
+    p(SEPARATOR);
     dateTime2();
   }
 
@@ -74,7 +74,7 @@ public class ImmutableTypesExplorer implements Explorer {
 
 
   public static void main(String[] args) {
-    Executor.executeExplorer(ImmutableTypesExplorer.class);
+    Executor.executeMyselfWithTime();
   }
 
 

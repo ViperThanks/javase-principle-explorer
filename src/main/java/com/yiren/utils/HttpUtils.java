@@ -1,6 +1,6 @@
 package com.yiren.utils;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpException;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -21,6 +21,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
+
+import static com.google.common.base.Preconditions.checkState;
 
 /**
  * desc: http 工具类
@@ -61,11 +63,21 @@ public final class HttpUtils {
         }
     }
 
-
+    /**
+     * 获取http客户端
+     * @return http客户端，基于连接池
+     */
     public static CloseableHttpClient getHttpClient() {
         return HttpClientConnectionPool.getHttpClient();
     }
 
+    /**
+     * 做post请求
+     * @param uri 请求的url
+     * @param body 请求体
+     * @return 请求响应体
+     * @throws HttpException http异常
+     */
     public static String doPost(String uri, String body) throws HttpException {
         try {
             return doPost(new URI(uri), body);
@@ -81,7 +93,7 @@ public final class HttpUtils {
 
     public static String doPost(URI uri, String body) throws HttpException {
         final HttpPost httpPost = new HttpPost(uri);
-        httpPost.addHeader(HTTP.CONTENT_TYPE, "application/json");
+        httpPost.addHeader(HTTP.CONTENT_TYPE, ContentType.APPLICATION_JSON.getMimeType());
         httpPost.addHeader(HTTP.CONTENT_ENCODING, StandardCharsets.UTF_8.name());
         try {
             // 使用 JSON 库序列化 body 参数
@@ -89,7 +101,7 @@ public final class HttpUtils {
             httpPost.setEntity(entity);
             try (CloseableHttpResponse response = getHttpClient().execute(httpPost)) {
                 int statusCode = response.getStatusLine().getStatusCode();
-                String responseBody = EntityUtils.toString(response.getEntity());
+                String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
                 if (statusCode >= 200 && statusCode < 300) { // 检查状态码是否成功
                     return responseBody;
                 } else {
@@ -101,17 +113,63 @@ public final class HttpUtils {
         }
     }
 
-    public static String doGet(String uri) throws URISyntaxException {
-        return doGet(new URI(uri));
+    public static String doGet(String uri) throws HttpException {
+        try {
+            return doGet(new URI(uri));
+        } catch (URISyntaxException e) {
+            LOG.error("url 格式错误，请检查格式。");
+            throw new RuntimeException(e);
+        }
     }
 
-    public static String doGet(URI url) {
+    public static String doGet(URI url) throws HttpException {
         HttpGet httpGet = new HttpGet(url);
         try (CloseableHttpResponse response = getHttpClient().execute(httpGet)) {
-            return EntityUtils.toString(response.getEntity());
+            int statusCode = response.getStatusLine().getStatusCode();
+            String responseBody = EntityUtils.toString(response.getEntity());
+            if (statusCode >= 200 && statusCode < 300) { // 检查状态码是否成功
+                return responseBody;
+            } else {
+                throw new HttpException("HTTP POST request failed with status code: " + statusCode);
+            }
         } catch (IOException e) {
-            LOG.error("get请求失败 url :: {} {}", url, ExceptionUtils.getStackTrace(e));
-            return null;
+            throw new HttpException("Error sending HTTP POST request", e);
         }
+    }
+
+    public static HttpRequestBuilder newBuilder() {
+        return new HttpRequestBuilder();
+    }
+
+    public static class HttpRequestBuilder{
+        private String uri;
+        private String body;
+        private Map<String, Object> header;
+
+        public HttpRequestBuilder uri(String uri) {
+            this.uri = uri;
+            return this;
+        }
+
+        public HttpRequestBuilder body(String body) {
+            this.body = body;
+            return this;
+        }
+
+        public HttpRequestBuilder header(Map<String, Object> header) {
+            this.header = header;
+            return this;
+        }
+
+        public String doPost() throws HttpException {
+            checkState(StringUtils.isNoneBlank(uri, body),"post请求url和body不能为blank");
+            return HttpUtils.doPost(uri, body);
+        }
+
+        public String doGet() throws HttpException {
+            checkState(StringUtils.isNotBlank(uri));
+            return HttpUtils.doGet(uri);
+        }
+
     }
 }

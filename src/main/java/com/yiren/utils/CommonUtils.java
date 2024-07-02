@@ -565,7 +565,7 @@ public abstract class CommonUtils {
             };
 
     private static String toString0(PrincipleField<?> principleField){
-      return "PrincipleField -> " + Printer.toString(principleField.getSnapshot());
+      return "PrincipleField -> " + Printer.toString(principleField.get());
     }
 
     //ensure supportClass is sorted

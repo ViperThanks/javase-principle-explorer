@@ -4,6 +4,7 @@ package com.yiren.entity;
 import com.alibaba.fastjson.TypeReference;
 
 import java.lang.reflect.Field;
+import java.util.Objects;
 
 /**
  * desc: 原理实体字段
@@ -26,12 +27,15 @@ public class PrincipleField<T> {
      */
     private final Field targetField;
     /**
-     * 反射的类
+     * 被反射的类
      */
     private final Class<?> cl;
 
+    private boolean isPrimitive = false;
+
     public PrincipleField(Class<?> targetClass, String fieldName, Class<T> tClass) {
         this(targetClass, null, fieldName);
+        this.isPrimitive = Objects.requireNonNull(tClass).isPrimitive();
     }
 
     public PrincipleField(Class<?> targetClass, String fieldName, TypeReference<T> typeReference) {
@@ -47,6 +51,7 @@ public class PrincipleField<T> {
      */
     public PrincipleField(Object targetObj, String fieldName, Class<T> tClass) {
         this(targetObj.getClass(), targetObj, fieldName);
+        this.isPrimitive = Objects.requireNonNull(tClass).isPrimitive();
     }
 
     /**
@@ -70,24 +75,12 @@ public class PrincipleField<T> {
         }
     }
 
-    public PrincipleField<T> withInit() {
-        flush();
-        return this;
-    }
-
     /**
      * 获取最新的反射对象
      */
     public T get() {
-        flush();
+        if (isPrimitive) flush();
         return data;
-    }
-
-    /**
-     * 获取上一次反射对象的快照，注意：引用类型不是快照
-     */
-    public T getSnapshot() {
-        return data == null ? get() : data;
     }
 
     /**
