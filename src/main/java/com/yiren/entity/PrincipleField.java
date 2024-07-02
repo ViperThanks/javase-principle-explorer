@@ -31,6 +31,9 @@ public class PrincipleField<T> {
      */
     private final Class<?> cl;
 
+    /**
+     * 是否是原始类型
+     */
     private boolean isPrimitive = false;
 
     public PrincipleField(Class<?> targetClass, String fieldName, Class<T> tClass) {
@@ -73,6 +76,7 @@ public class PrincipleField<T> {
         } catch (NoSuchFieldException e) {
             throw new RuntimeException(e);
         }
+        flush();
     }
 
     /**
