@@ -2,6 +2,7 @@ package com.yiren.core;
 
 
 import com.google.common.base.Stopwatch;
+import com.yiren.utils.CallerUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -91,6 +92,11 @@ public final class Executor {
             }
             String clazzName = explorerClazz.getSimpleName();
             LOGGER.info("{} execute explorerClass: [{}] main thread start {}", BEGIN_SIGN, clazzName, END_SIGN);
+            if (explorerClazz.isAnnotationPresent(Explore.class)) {
+                Explore annotation = explorerClazz.getAnnotation(Explore.class);
+                String desc = annotation.desc();
+                LOGGER.info("{} 探索类型：{}，探索内容：{} {}", BEGIN_SIGN, annotation.value().getDesc(), desc, END_SIGN);
+            }
             Explorer explorer = null;
             try {
                 explorer = explorerClazz.getConstructor().newInstance();
@@ -120,15 +126,10 @@ public final class Executor {
      */
     @SuppressWarnings("unchecked")
     public static void executeMyselfWithTime() {
-        // 获取当前线程的栈跟踪元素
-        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-        // stackTraceElements[2] 是调用 doMyself 的方法
-        StackTraceElement caller = stackTraceElements[2];
-        String className = caller.getClassName();
         Class<?> clazz = null;
         try {
             // 加载类并创建实例
-            clazz = Class.forName(className);
+            clazz = CallerUtils.getCallerClass();
             // 检查是否存在 explore 方法并调用
             if (!Explorer.class.isAssignableFrom(clazz)) {
                 throw new IllegalStateException("illegal class because no implement Explorer");

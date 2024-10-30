@@ -38,7 +38,7 @@ public class PrincipleField<T> {
 
     public PrincipleField(Class<?> targetClass, String fieldName, Class<T> tClass) {
         this(targetClass, null, fieldName);
-        this.isPrimitive = Objects.requireNonNull(tClass).isPrimitive();
+        this.isPrimitive = isPrimitive(tClass);
     }
 
     public PrincipleField(Class<?> targetClass, String fieldName, TypeReference<T> typeReference) {
@@ -54,7 +54,7 @@ public class PrincipleField<T> {
      */
     public PrincipleField(Object targetObj, String fieldName, Class<T> tClass) {
         this(targetObj.getClass(), targetObj, fieldName);
-        this.isPrimitive = Objects.requireNonNull(tClass).isPrimitive();
+        this.isPrimitive = isPrimitive(tClass);
     }
 
     /**
@@ -98,5 +98,14 @@ public class PrincipleField<T> {
             throw new RuntimeException(e);
         }
     }
+
+    private boolean isPrimitive(Class<?> clazz){
+       return Objects.requireNonNull(clazz,"class is null !").isPrimitive() ||
+                clazz == Boolean.class || clazz == Byte.class ||
+                clazz == Character.class || clazz == Short.class ||
+                clazz == Integer.class || clazz == Long.class ||
+                clazz == Float.class || clazz == Double.class || clazz == String.class;
+    }
+
 
 }

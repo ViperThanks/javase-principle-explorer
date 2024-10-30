@@ -1,0 +1,20 @@
+[
+  {
+    "left": 50,
+    "top": 50,
+    "width": 160,
+    "height": 160,
+    "type": 3,
+    "fontColor": "#333333",
+    "fontTextAlign": 1,
+    "verticalType": 2,
+    "imgPath": "http://182.43.189.184:8390/scrm/static/POST_QRCODE.png",
+    "qrcodeUrl": "http://localhost",
+    "content": "",
+    "wordSpace": 0,
+    "lineSpace": 0,
+    "rotate": 0,
+    "fontStyle": 0,
+    "order": 0
+  }
+]

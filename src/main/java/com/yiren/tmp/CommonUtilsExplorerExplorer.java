@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.yiren.core.Executor;
 import com.yiren.core.expand.BaseExplorer;
 import com.yiren.utils.CommonUtils;
-import com.yiren.utils.Json;
+import com.yiren.utils.JSONUtils;
 
 import java.util.Arrays;
 
@@ -27,9 +27,9 @@ public class CommonUtilsExplorerExplorer extends BaseExplorer {
     public void explore() throws Exception {
         int[] randomIntArr = CommonUtils.getRandomIntArr(5);
         log.info(Arrays.toString(randomIntArr));
-        int[] ints = CommonUtils.defaultIf(arr -> arr.length == 5, randomIntArr, new int[]{1, 2, 3, 4, 5});
+        int[] ints = CommonUtils.defaultIf(arr -> arr.length == 5, randomIntArr, () -> new int[]{1, 2, 3, 4, 5});
         log.info(Arrays.toString(ints));
-        log.info(Json.toJsonString(ints));
+        log.info(JSONUtils.toJsonString(ints));
         log.info(JSON.toJSONString(ints));
     }
 

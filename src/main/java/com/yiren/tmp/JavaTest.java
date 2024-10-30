@@ -10,7 +10,7 @@ import com.yiren.algorithm.array.QuickSort;
 import com.yiren.algorithm.datastructure.Pair;
 import com.yiren.algorithm.utils.AlgoUtils;
 import com.yiren.core.Executor;
-import com.yiren.core.ExplorerTestable;
+import com.yiren.core.expand.ExplorerTestable;
 import com.yiren.entity.Employee;
 import com.yiren.entity.User;
 import com.yiren.utils.StopWatch;

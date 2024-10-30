@@ -4,73 +4,98 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff971988-bed1-4be9-b345-c3636a96a7d8" name="Changes" comment="改进代码,新增JUC的线程知识">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/leetcode/hot100/T20有效的括号.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/leetcode/hot100/T21合并两个有序链表.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/ExplorerTestable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/design_patterns/单例模式/HungrySingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/design_patterns/单例模式/LazySingleton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/practice/PrintSequenceFrom1To100.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/PackUnpack/PackStatusExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/PackUnpack/PackUnpackTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/BiasedLockExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/LockExpansionExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Unsafe/MyAtomicInteger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Unsafe/UnsafeFunctionExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/reentrantlock/ReentranLockExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/reentrantlock/ReentrantLockPracticeExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/reentrantlock/ReentrantLockSummaryExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/不可变类型/ImmutableTypesExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/两阶段终止模式/TwoPhaseTerminationAdvanced.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/可见性/NeverStopExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/多把锁/MultiLockExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/无锁并发cas/CasExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/无锁并发cas/原子类/AtomicIntegerExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程池的种类/TypesOfThreadPoolExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/线程状态的切换/从Runnable到Waiting/TestWaitNotify.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/生产者消费者/CustomerPublisherExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/生产者消费者/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/生产者消费者/MessageQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/锁的活跃性/死锁/DeadLockExplorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/顺序控制/SequenceControl2Explorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/顺序控制/SequenceControl3Explorer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/顺序控制/SequenceControlExplorer1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/utils/JucHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/utils/PrincipleUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/utils/Sleeper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/utils/SyncLock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestWhy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/asdfsadf.java" afterDir="false" />
+    <list default="true" id="ff971988-bed1-4be9-b345-c3636a96a7d8" name="Changes" comment="fix：优化">
+      <change afterPath="$PROJECT_DIR$/.idea/CommonStatePersistent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/JavaSceneConfigState.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qodana.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/context/Context.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/Explore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/enums/ExplorerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/entity/Interval.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/enums/IndexDesc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/enums/IndexDescEnumUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/enums/IndexDescEnumUtilTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/enums/IndexDescTypeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/enums/TestEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/init/ExploreScanInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/init/Initializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/regax/RegularExpressionExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/大数据文件/BigDataFileGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/大数据文件/BigDataReaderExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/EasyFileReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/MyTest123.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Space2Camel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Test2024.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestJavaAddPerformance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestPrincipleExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Yesterday.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/verytemp/temp2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/verytemp/test1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/verytemp/tmp1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/IndexDescEnumUtilTestExplorer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/IndexDescEnumUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/RangeUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/testdata/other_fields_test.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/testdata/other_fields_test1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/testdata/subassembly_test.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/testdata/subassembly_test1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/testdata/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/testdata/回滚.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/testdata/第二版sql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/ListNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/ListNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/datastructure/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/utils/AlgoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/algorithm/utils/AlgoUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/core/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/core/Executor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/jdbc/JdbcExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/jdbc/JdbcExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/object/ObjectBytesDetailExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/javase/object/ObjectBytesDetailExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/保护性暂停/GuardedObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/设计模式/保护性暂停/GuardedObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/test_data/TestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/test_data/TestData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/utils/StopWatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/StopWatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/entity/PrincipleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/entity/PrincipleField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/principle/dataStructure/ArrayListPrincipleExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/principle/dataStructure/ArrayListPrincipleExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/CommonUtilsExplorerExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/CommonUtilsExplorerExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/JavaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/JavaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/QiaoDaiMaShiGanMaDe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/QiaoDaiMaShiGanMaDe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/SkipListExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/SkipListExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Test1234Explorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/Test1234Explorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TestExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TmpExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/TmpExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/tmp1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/tmp/tmp1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yiren/utils/HttpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yiren/utils/HttpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/testdata/words.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="explorer" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -79,32 +104,61 @@
     &quot;assignee&quot;: &quot;ViperThanks&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="b183face-cfc9-4f62-b24d-a9a1d63bb1bc" />
-        <option name="url" value="https://github.com/ViperThanks/javase-principle-explorer.git" />
-      </UrlAndAccount>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
     </option>
   </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ViperThanks/javase-principle-explorer.git&quot;,
+    &quot;accountId&quot;: &quot;40dfea82-2317-4aed-9bf2-6609da6c0e74&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/com/google/guava/guava/31.1-jre/guava-31.1-jre-sources.jar!/com/google/common/collect/Lists.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre-sources.jar!/com/google/common/annotations/Beta.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre-sources.jar!/com/google/common/annotations/GwtCompatible.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre-sources.jar!/com/google/common/annotations/GwtIncompatible.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre-sources.jar!/com/google/common/base/Splitter.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre-sources.jar!/com/google/common/collect/Iterables.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/com/google/guava/guava/32.1.3-jre/guava-32.1.3-jre-sources.jar!/com/google/common/io/Files.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/junit/junit/4.13.2/junit-4.13.2-sources.jar!/org/junit/rules/ExpectedException.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/jdk1.8u382-b05/jre/lib/ext/jfxrt.jar!/com/sun/javafx/collections/ObservableSequentialListWrapper.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/jdk1.8u382-b05/src.zip!/java/lang/Class.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/jdk1.8u382-b05/src.zip!/java/util/AbstractSequentialList.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/jdk1.8u382-b05/src.zip!/java/util/ArrayList.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/jdk1.8u382-b05/src.zip!/java/util/HashMap.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/jdk1.8u382-b05/src.zip!/java/util/List.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../env/jdk1.8u382-b05/src.zip!/java/util/concurrent/ConcurrentHashMap.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/../../../env/jdk11.0.18/lib/src.zip!/java.base/java/util/HashMap.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/../../../env/jdk11.0.18/lib/src.zip!/java.base/java/util/TreeSet.java" root0="SKIP_INSPECTION" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="customMavenHome" value="$PROJECT_DIR$/../../../env/apache-maven-3.9.3" />
         <option name="localRepository" value="E:\env\apache-maven-3.9.3\maven_repository" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../env/apache-maven-3.9.3" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
         <option name="userSettingsFile" value="E:\env\apache-maven-3.9.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2SINImR2nzs32fPKOtpOnT040JG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -112,13 +166,66 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;Application.ArrayListPrincipleExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Base64ImplExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BigDataReaderExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ByteSourceExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CharSinkExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CollectionExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CommonUtilsExplorerExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Demo1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EasyFileReader.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EncodingExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EventBudsExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FilesExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HashMapPutDetailExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HashMapTips.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ImmutableTypesExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IndexDescEnumUtil.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IndexDescEnumUtilTestExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JavaCacheUtils.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ListRemoveMethod.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyLRUCacheExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MyTest123.executor&quot;: &quot;Run&quot;,
+    &quot;Application.QiaoDaiMaShiGanMaDe.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RegularExpressionExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SkipListExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SoftReferenceExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Space2Camel.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SyncTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.T169多数元素.executor&quot;: &quot;Run&quot;,
+    &quot;Application.T26删除有序数组中的重复项.executor&quot;: &quot;Run&quot;,
+    &quot;Application.T283移动零.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Test1234Explorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestGenerator.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.TestJavaAddPerformance.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestPrincipleExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestStream.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ThreadMethodsExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UnsafeFunctionExplorer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Yesterday.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.tmp1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.tmp12.executor&quot;: &quot;Run&quot;,
+    &quot;Application.tmp2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IndexDescEnumUtilTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IndexDescEnumUtilTest.testFindByCode (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IndexDescEnumUtilTest.testFindByCode.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IndexDescEnumUtilTest.testFindByIndexOrNull (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IndexDescEnumUtilTest.testFindByIndexOrNull.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;JUnit.IndexDescEnumUtilTest.testFindByIndexOrThrow.executor&quot;: &quot;Run&quot;,
+    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ShowUsagesActions.previewPropertyKey&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/codespaces/eden/javase-principle-explorer/src/main/java/com/yiren/principle/javase/utils&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/codespaces/eden/javase-principle-explorer/src/main/resources/testdata/test1.json&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -127,10 +234,20 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;E:/codespaces/eden/javase-principle-explorer/src/main/resources/testdata/test1.json&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="QodanaProblemsViewState">
+    <option name="groupByInspection" value="false" />
+    <option name="groupBySeverity" value="false" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\Viepe\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="a95b9e1c-7e46-427f-aa59-36d75495185f" reportId="javase-principle-explorer/qodana/2024-07-26" />
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\codespaces\eden\javase-principle-explorer\src\main\java\com\yiren\principle\javase\utils" />
@@ -141,6 +258,7 @@
       <recent name="E:\codespaces\eden\javase-principle-explorer\src\main\java\com\yiren\tmp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yiren.entity.enums" />
       <recent name="com.yiren.principle.juc.两阶段终止模式" />
       <recent name="com.yiren.principle.juc.顺序控制" />
       <recent name="com.yiren.entity" />
@@ -152,7 +270,20 @@
       <command value="asListNode" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.IndexDescEnumUtilTest.testFindByIndexOrNull (1)">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.Application" />
+      <module name="javase-principle-explorer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yiren.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GCAnalyzerExplorer" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.yiren.principle.jvm.heap.GCAnalyzerExplorer" />
       <module name="javase-principle-explorer" />
@@ -167,12 +298,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImmutableTypesExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.juc.不可变类型.ImmutableTypesExplorer" />
+    <configuration name="test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yiren.tmp.verytemp.test1" />
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yiren.principle.juc.不可变类型.*" />
+          <option name="PATTERN" value="com.yiren.tmp.verytemp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -180,75 +311,80 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JdbcExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.javase.jdbc.JdbcExplorer" />
+    <configuration name="IndexDescEnumUtilTest.testFindByCode (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yiren.principle.javase.jdbc.*" />
+          <option name="PATTERN" value="com.yiren.enums.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.yiren.enums" />
+      <option name="MAIN_CLASS_NAME" value="com.yiren.enums.IndexDescEnumUtilTest" />
+      <option name="METHOD_NAME" value="testFindByCode" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.tmp.Main" />
+    <configuration name="IndexDescEnumUtilTest.testFindByIndexOrNull (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yiren.tmp.*" />
+          <option name="PATTERN" value="com.yiren.enums.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.yiren.enums" />
+      <option name="MAIN_CLASS_NAME" value="com.yiren.enums.IndexDescEnumUtilTest" />
+      <option name="METHOD_NAME" value="testFindByIndexOrNull" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestWhy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.tmp.TestWhy" />
+    <configuration name="IndexDescEnumUtilTest.testFindByIndexOrNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="javase-principle-explorer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yiren.tmp.*" />
+          <option name="PATTERN" value="com.yiren.enums.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UnsafeFunctionExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.yiren.principle.juc.Unsafe.UnsafeFunctionExplorer" />
-      <module name="javase-principle-explorer" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yiren.principle.juc.Unsafe.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="com.yiren.enums" />
+      <option name="MAIN_CLASS_NAME" value="com.yiren.enums.IndexDescEnumUtilTest" />
+      <option name="METHOD_NAME" value="testFindByIndexOrNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea -Xint" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.GCAnalyzerExplorer" />
-      <item itemvalue="Application.ImmutableTypesExplorer" />
-      <item itemvalue="Application.JdbcExplorer" />
-      <item itemvalue="Application.TestWhy" />
-      <item itemvalue="Application.UnsafeFunctionExplorer" />
-      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.test1" />
+      <item itemvalue="Application.Application" />
+      <item itemvalue="JUnit.IndexDescEnumUtilTest.testFindByIndexOrNull (1)" />
+      <item itemvalue="JUnit.IndexDescEnumUtilTest.testFindByCode (1)" />
+      <item itemvalue="JUnit.IndexDescEnumUtilTest.testFindByIndexOrNull" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.ImmutableTypesExplorer" />
-        <item itemvalue="Application.JdbcExplorer" />
-        <item itemvalue="Application.TestWhy" />
-        <item itemvalue="Application.UnsafeFunctionExplorer" />
+        <item itemvalue="JUnit.IndexDescEnumUtilTest.testFindByIndexOrNull (1)" />
+        <item itemvalue="Application.test1" />
+        <item itemvalue="JUnit.IndexDescEnumUtilTest.testFindByIndexOrNull" />
+        <item itemvalue="JUnit.IndexDescEnumUtilTest.testFindByCode (1)" />
+        <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-2c89be11f927-intellij.indexing.shared.core-IU-243.18137.10" />
+        <option value="bundled-js-predefined-d6986cc7102b-b86d7ee83eed-JavaScript-IU-243.18137.10" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -315,6 +451,139 @@
       <workItem from="1695093429696" duration="4605000" />
       <workItem from="1695123918440" duration="2400000" />
       <workItem from="1695538255862" duration="2774000" />
+      <workItem from="1695692286095" duration="2406000" />
+      <workItem from="1696255970233" duration="744000" />
+      <workItem from="1704017184567" duration="2274000" />
+      <workItem from="1704021964202" duration="1065000" />
+      <workItem from="1705021985048" duration="725000" />
+      <workItem from="1705023621920" duration="101000" />
+      <workItem from="1705023737612" duration="323000" />
+      <workItem from="1705024086200" duration="478000" />
+      <workItem from="1705027181791" duration="75000" />
+      <workItem from="1705487950077" duration="5000" />
+      <workItem from="1705489529567" duration="3628000" />
+      <workItem from="1705905259764" duration="2545000" />
+      <workItem from="1706024463695" duration="617000" />
+      <workItem from="1706532952520" duration="2235000" />
+      <workItem from="1706542232644" duration="10563000" />
+      <workItem from="1706632405086" duration="2198000" />
+      <workItem from="1707145814920" duration="725000" />
+      <workItem from="1707226645914" duration="2619000" />
+      <workItem from="1707232053491" duration="2172000" />
+      <workItem from="1707316239949" duration="332000" />
+      <workItem from="1707317367711" duration="2127000" />
+      <workItem from="1707749517720" duration="2516000" />
+      <workItem from="1707835665087" duration="471000" />
+      <workItem from="1707843881395" duration="1726000" />
+      <workItem from="1707847336109" duration="688000" />
+      <workItem from="1707919062919" duration="136000" />
+      <workItem from="1708692558410" duration="5076000" />
+      <workItem from="1708768074402" duration="6366000" />
+      <workItem from="1708789991658" duration="1085000" />
+      <workItem from="1708919756002" duration="4000" />
+      <workItem from="1708961830708" duration="1607000" />
+      <workItem from="1709117830205" duration="3776000" />
+      <workItem from="1709188975520" duration="19000" />
+      <workItem from="1709545011195" duration="1071000" />
+      <workItem from="1709715070168" duration="2836000" />
+      <workItem from="1710163299858" duration="891000" />
+      <workItem from="1710224062680" duration="2228000" />
+      <workItem from="1710323166196" duration="2125000" />
+      <workItem from="1710434232211" duration="209000" />
+      <workItem from="1710434463439" duration="4402000" />
+      <workItem from="1711182972350" duration="3056000" />
+      <workItem from="1711283804897" duration="1386000" />
+      <workItem from="1711352279706" duration="884000" />
+      <workItem from="1711430709732" duration="3091000" />
+      <workItem from="1711519501523" duration="1908000" />
+      <workItem from="1711634354598" duration="566000" />
+      <workItem from="1712220832142" duration="648000" />
+      <workItem from="1712475629494" duration="891000" />
+      <workItem from="1712579110717" duration="1829000" />
+      <workItem from="1712648484587" duration="1972000" />
+      <workItem from="1712654584093" duration="5028000" />
+      <workItem from="1712835081800" duration="1735000" />
+      <workItem from="1712989346854" duration="11764000" />
+      <workItem from="1713075535094" duration="9172000" />
+      <workItem from="1713249807924" duration="12856000" />
+      <workItem from="1713599617672" duration="142000" />
+      <workItem from="1713859955786" duration="5804000" />
+      <workItem from="1713932452541" duration="20449000" />
+      <workItem from="1714097553787" duration="12161000" />
+      <workItem from="1714266162636" duration="5930000" />
+      <workItem from="1714298781202" duration="13438000" />
+      <workItem from="1714448854169" duration="7361000" />
+      <workItem from="1714464646902" duration="373000" />
+      <workItem from="1715136431475" duration="46432000" />
+      <workItem from="1715763490743" duration="9201000" />
+      <workItem from="1716257034995" duration="5679000" />
+      <workItem from="1716263338618" duration="5812000" />
+      <workItem from="1716341328001" duration="299000" />
+      <workItem from="1716345627030" duration="4907000" />
+      <workItem from="1716368568007" duration="159000" />
+      <workItem from="1716368749161" duration="13607000" />
+      <workItem from="1716772351918" duration="17569000" />
+      <workItem from="1717034120117" duration="16595000" />
+      <workItem from="1717377982287" duration="6326000" />
+      <workItem from="1717475086439" duration="17698000" />
+      <workItem from="1717574951416" duration="6333000" />
+      <workItem from="1717642669804" duration="6049000" />
+      <workItem from="1717723302013" duration="16078000" />
+      <workItem from="1717940338361" duration="119000" />
+      <workItem from="1717940489080" duration="2972000" />
+      <workItem from="1718183328074" duration="7584000" />
+      <workItem from="1718855490357" duration="5376000" />
+      <workItem from="1719191483073" duration="66000" />
+      <workItem from="1719222146106" duration="25003000" />
+      <workItem from="1719802511193" duration="7806000" />
+      <workItem from="1719887385892" duration="3929000" />
+      <workItem from="1719900342047" duration="693000" />
+      <workItem from="1719914233061" duration="6289000" />
+      <workItem from="1720057447181" duration="5737000" />
+      <workItem from="1720083624900" duration="7915000" />
+      <workItem from="1720405791991" duration="5000" />
+      <workItem from="1720419280240" duration="627000" />
+      <workItem from="1721273016036" duration="13686000" />
+      <workItem from="1721372727523" duration="9479000" />
+      <workItem from="1721630519926" duration="2230000" />
+      <workItem from="1721727820378" duration="1016000" />
+      <workItem from="1721788802053" duration="11819000" />
+      <workItem from="1721880167514" duration="10089000" />
+      <workItem from="1721900249369" duration="1544000" />
+      <workItem from="1721955969933" duration="9974000" />
+      <workItem from="1721978284870" duration="692000" />
+      <workItem from="1722242078381" duration="5063000" />
+      <workItem from="1722562910290" duration="10220000" />
+      <workItem from="1722583560212" duration="20000" />
+      <workItem from="1722823389309" duration="5564000" />
+      <workItem from="1722842750429" duration="10250000" />
+      <workItem from="1722997404962" duration="11438000" />
+      <workItem from="1723185179410" duration="11611000" />
+      <workItem from="1723424575236" duration="2660000" />
+      <workItem from="1723452633465" duration="575000" />
+      <workItem from="1723708957041" duration="2465000" />
+      <workItem from="1723791558077" duration="233000" />
+      <workItem from="1723794556154" duration="220000" />
+      <workItem from="1724061069061" duration="620000" />
+      <workItem from="1724898342116" duration="206000" />
+      <workItem from="1724898586419" duration="604000" />
+      <workItem from="1725190835934" duration="755000" />
+      <workItem from="1725349856198" duration="3331000" />
+      <workItem from="1725591379060" duration="864000" />
+      <workItem from="1725970330524" duration="1281000" />
+      <workItem from="1726125007853" duration="1873000" />
+      <workItem from="1726131896015" duration="8451000" />
+      <workItem from="1726298974496" duration="1112000" />
+      <workItem from="1726630800353" duration="3460000" />
+      <workItem from="1726799486144" duration="2901000" />
+      <workItem from="1727084260501" duration="2349000" />
+      <workItem from="1727572022273" duration="1573000" />
+      <workItem from="1727845802554" duration="531000" />
+      <workItem from="1728438693945" duration="1341000" />
+      <workItem from="1728522295595" duration="3309000" />
+      <workItem from="1728634995174" duration="796000" />
+      <workItem from="1729049501734" duration="7671000" />
+      <workItem from="1729258272626" duration="2118000" />
     </task>
     <task id="LOCAL-00001" summary="Java 原理 探索 project 第一次 commit">
       <option name="closed" value="true" />
@@ -348,25 +617,169 @@
       <option name="project" value="LOCAL" />
       <updated>1694497174674</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="改进代码,其他操作">
+      <option name="closed" value="true" />
+      <created>1695692625409</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695692625409</updated>
+    </task>
+    <task id="LOCAL-00006" summary="正常备份">
+      <option name="closed" value="true" />
+      <created>1710436910441</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710436910441</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat：executor加上时间">
+      <option name="closed" value="true" />
+      <created>1712992316642</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712992316643</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat：对核心代码部分的维护更新">
+      <option name="closed" value="true" />
+      <created>1717555540087</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717555540087</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat：重构原理字段类，可以更方便地获取对象的属性">
+      <option name="closed" value="true" />
+      <created>1717555584184</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1717555584184</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat：工具类的增删改查">
+      <option name="closed" value="true" />
+      <created>1717555605233</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717555605233</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat：完善注释">
+      <option name="closed" value="true" />
+      <created>1717555706652</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1717555706652</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat：完善工具类">
+      <option name="closed" value="true" />
+      <created>1719366817549</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719366817549</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat：1、redis zset的简单实现&#10;2、部分原理的探索">
+      <option name="closed" value="true" />
+      <created>1719366855181</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1719366855181</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat：原理字段的实现">
+      <option name="closed" value="true" />
+      <created>1719366879662</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1719366879662</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat：leetcode刷题的记录">
+      <option name="closed" value="true" />
+      <created>1719366892276</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1719366892276</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix：优化HttpUtils的错误响应日志">
+      <option name="closed" value="true" />
+      <created>1719815406210</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1719815406210</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix：优化">
+      <option name="closed" value="true" />
+      <created>1719888355173</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1719888355173</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix：优化">
+      <option name="closed" value="true" />
+      <created>1719894381571</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1719894381571</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Java 原理 探索 project 第一次 commit" />
     <MESSAGE value="修改异常，增加代码健壮性" />
     <MESSAGE value="改进代码,新增JUC的线程知识" />
-    <option name="LAST_COMMIT_MESSAGE" value="改进代码,新增JUC的线程知识" />
+    <MESSAGE value="改进代码,其他操作" />
+    <MESSAGE value="正常备份" />
+    <MESSAGE value="feat：executor加上时间" />
+    <MESSAGE value="feat：对核心代码部分的维护更新" />
+    <MESSAGE value="feat：重构原理字段类，可以更方便地获取对象的属性" />
+    <MESSAGE value="feat：工具类的增删改查" />
+    <MESSAGE value="feat：完善注释" />
+    <MESSAGE value="feat：完善工具类" />
+    <MESSAGE value="feat：1、redis zset的简单实现&#10;2、部分原理的探索" />
+    <MESSAGE value="feat：原理字段的实现" />
+    <MESSAGE value="feat：leetcode刷题的记录" />
+    <MESSAGE value="fix：优化HttpUtils的错误响应日志" />
+    <MESSAGE value="fix：优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix：优化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/BiasedLockExplorer.java</url>
           <line>55</line>
@@ -376,6 +789,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/yiren/principle/juc/Sync原理/BiasedLockExplorer.java</url>
           <line>30</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../../../env/apache-maven-3.9.3/maven_repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0-sources.jar!/org/apache/commons/lang3/ObjectUtils.java</url>
+          <line>1041</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

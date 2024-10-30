@@ -6,7 +6,9 @@ import com.yiren.core.expand.BaseExplorer;
 import com.yiren.entity.PrincipleField;
 import com.yiren.entity.User;
 import com.yiren.principle.utils.PrincipleUtil;
+import com.yiren.utils.CallerUtils;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 /**
@@ -36,6 +38,8 @@ public class ArrayListPrincipleExplorer extends BaseExplorer {
         elementData[7] = new User();
         pws(elementData);
         pws(strings.get(7));
+        Method main = CallerUtils.getCallerClass().getDeclaredMethod("main", String[].class);
+        main.invoke(null, null);
 
     }
 }

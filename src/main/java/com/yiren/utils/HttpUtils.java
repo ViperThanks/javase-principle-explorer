@@ -6,6 +6,7 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -17,11 +18,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.Map;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
 /**
@@ -71,27 +73,21 @@ public final class HttpUtils {
         return HttpClientConnectionPool.getHttpClient();
     }
 
-    /**
-     * 做post请求
-     * @param uri 请求的url
-     * @param body 请求体
-     * @return 请求响应体
-     * @throws HttpException http异常
-     */
-    public static String doPost(String uri, String body) throws HttpException {
-        try {
-            return doPost(new URI(uri), body);
-        } catch (URISyntaxException e) {
-            LOG.error("url 格式错误，请检查格式。");
-            throw new RuntimeException(e);
-        }
-    }
 
-    public static String doPost(URI uri, Map<String, Object> body) throws HttpException {
+    public static String doPost(String uri, Map<String, Object> body) throws HttpException {
         return doPost(uri, JSONUtils.toJsonString(body));
     }
 
-    public static String doPost(URI uri, String body) throws HttpException {
+    /**
+     * 基于apache http客户端的post请求实现
+     * @param uri
+     * @param body
+     * @return
+     * @throws HttpException
+     */
+    public static String doPost(String uri, String body) throws HttpException {
+        checkNotNull(uri, "uri不能为空");
+        checkState(StringUtils.isNotBlank(body), "body不能为空");
         final HttpPost httpPost = new HttpPost(uri);
         httpPost.addHeader(HTTP.CONTENT_TYPE, ContentType.APPLICATION_JSON.getMimeType());
         httpPost.addHeader(HTTP.CONTENT_ENCODING, StandardCharsets.UTF_8.name());
@@ -109,31 +105,39 @@ public final class HttpUtils {
                 }
             }
         } catch (IOException e) {
+            //释放链接，由于CloseableHttpResponse已经在tru with resource代码块里，所以只需要让httpPost释放链接就行了
+            httpPost.releaseConnection();
             throw new HttpException("Error sending HTTP POST request", e);
         }
     }
 
     public static String doGet(String uri) throws HttpException {
-        try {
-            return doGet(new URI(uri));
-        } catch (URISyntaxException e) {
-            LOG.error("url 格式错误，请检查格式。");
-            throw new RuntimeException(e);
-        }
+        return doGet(uri, Collections.emptyMap());
     }
 
-    public static String doGet(URI url) throws HttpException {
-        HttpGet httpGet = new HttpGet(url);
+    public static String doGet(String url, Map<String, Object> params) throws HttpException {
+        checkNotNull(url, "uri is null! ");
+        checkNotNull(params, "params is null! ");
+        HttpGet httpGet = null;
+        try {
+            URIBuilder uriBuilder = new URIBuilder(url);
+            params.forEach((k, v) -> uriBuilder.addParameter(k, String.valueOf(v)));
+            httpGet = new HttpGet(uriBuilder.build());
+        } catch (URISyntaxException e) {
+            LOG.error("url {}格式错误，请检查格式。", url);
+            throw new HttpException("URL 格式错误，请检查格式");
+        }
         try (CloseableHttpResponse response = getHttpClient().execute(httpGet)) {
             int statusCode = response.getStatusLine().getStatusCode();
-            String responseBody = EntityUtils.toString(response.getEntity());
+            String responseBody = EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
             if (statusCode >= 200 && statusCode < 300) { // 检查状态码是否成功
                 return responseBody;
             } else {
-                throw new HttpException("HTTP POST request failed with status code: " + statusCode);
+                throw new HttpException("HTTP GET request failed with status code: " + statusCode);
             }
         } catch (IOException e) {
-            throw new HttpException("Error sending HTTP POST request", e);
+            httpGet.releaseConnection();
+            throw new HttpException("Error sending HTTP GET request", e);
         }
     }
 
